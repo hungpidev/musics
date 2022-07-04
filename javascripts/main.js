@@ -152,7 +152,7 @@ window.addEventListener("load", function () {
   let indexSong = 0;
   let isPlaying = true;
   let isMuted = false;
-  let accVolume;
+  let unmuteVolume;
   let isRepeat = false;
   let isRandom = false;
   let timeVolumeValue;
@@ -165,7 +165,7 @@ window.addEventListener("load", function () {
   const currentMuted = volumeMusic.get("isMuted");
   const currentIconMuted = volumeMusic.get("iconMuted");
   const currentVolumeBar = volumeMusic.get("volumeBar");
-  const currentAccVolume = volumeMusic.get("accVolume");
+  const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
   const currentVolumeTrack = volumeMusic.get("volumeTrack");
 
   function localStorageMusic() {
@@ -192,8 +192,8 @@ window.addEventListener("load", function () {
     if (currentVolumeBar) {
       volumeBar.value = currentVolumeBar;
     }
-    if (currentAccVolume) {
-      accVolume = currentAccVolume;
+    if (currentUnmuteVolume) {
+      unmuteVolume = currentUnmuteVolume;
     }
   }
   localStorageMusic();
@@ -522,7 +522,7 @@ window.addEventListener("load", function () {
     if (isMuted) {
       muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
       isMuted = false;
-      volumeBar.value = accVolume;
+      volumeBar.value = unmuteVolume;
       song.volume = volumeBar.value / 100;
     } else {
       muted.innerHTML = `<i class="fa-solid fa-volume-xmark muted"></i>`;
@@ -569,36 +569,36 @@ window.addEventListener("load", function () {
   volumeBar.addEventListener("input", handleChangeVolume);
   function handleChangeVolume() {
     song.volume = volumeBar.value / 100;
-    accVolume = volumeBar.value;
+    unmuteVolume = volumeBar.value;
     checkVolume();
     handleVolumeBar();
     handleTimeVolume();
     handleVolumeValue();
-    volumeMusic.set("accVolume", accVolume);
+    volumeMusic.set("unmuteVolume", unmuteVolume);
   }
 
   volumeDown.addEventListener("click", handleVolumeDown);
   function handleVolumeDown() {
     volumeBar.value = Number(volumeBar.value) - 5;
     song.volume = volumeBar.value / 100;
-    accVolume = volumeBar.value;
+    unmuteVolume = volumeBar.value;
     checkVolume();
     handleVolumeBar();
     handleTimeVolume();
     handleVolumeValue();
-    volumeMusic.set("accVolume", accVolume);
+    volumeMusic.set("unmuteVolume", unmuteVolume);
   }
 
   volumeUp.addEventListener("click", handleVolumeUp);
   function handleVolumeUp() {
     volumeBar.value = Number(volumeBar.value) + 5;
     song.volume = volumeBar.value / 100;
-    accVolume = volumeBar.value;
+    unmuteVolume = volumeBar.value;
     checkVolume();
     handleVolumeBar();
     handleTimeVolume();
     handleVolumeValue();
-    volumeMusic.set("accVolume", accVolume);
+    volumeMusic.set("unmuteVolume", unmuteVolume);
   }
 
   function loadCurrentSong(indexSong) {
