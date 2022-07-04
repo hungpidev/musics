@@ -570,7 +570,6 @@ window.addEventListener("load", function () {
   function handleChangeVolume() {
     song.volume = volumeBar.value / 100;
     accVolume = volumeBar.value;
-    console.log(accVolume);
     checkVolume();
     handleVolumeBar();
     handleTimeVolume();
