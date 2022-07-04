@@ -601,7 +601,13 @@ window.addEventListener("load", function () {
 
   volumeDown.addEventListener("click", handleVolumeDown);
   function handleVolumeDown() {
-    volumeBar.value = Number(volumeBar.value) - 5;
+    if (volumeBar.value % 10 !== 0) {
+      volumeBar.value = Number(volumeBar.value) + 10;
+    }
+    while (volumeBar.value % 10 !== 0) {
+      volumeBar.value--;
+    }
+    volumeBar.value = Number(volumeBar.value) - 10;
     song.volume = volumeBar.value / 100;
     unmuteVolume = volumeBar.value;
     checkVolume();
@@ -613,7 +619,13 @@ window.addEventListener("load", function () {
 
   volumeUp.addEventListener("click", handleVolumeUp);
   function handleVolumeUp() {
-    volumeBar.value = Number(volumeBar.value) + 5;
+    if (volumeBar.value % 10 !== 0) {
+      volumeBar.value = Number(volumeBar.value) - 10;
+    }
+    while (volumeBar.value % 10 !== 0) {
+      volumeBar.value++;
+    }
+    volumeBar.value = Number(volumeBar.value) + 10;
     song.volume = volumeBar.value / 100;
     unmuteVolume = volumeBar.value;
     checkVolume();
@@ -661,6 +673,15 @@ window.addEventListener("load", function () {
         handleInputBar();
         handleChangeBar();
         song.currentTime = Number(rangeBar.value) - 2;
+        break;
+      case ",":
+        handleVolumeDown();
+        break;
+      case ".":
+        handleVolumeUp();
+        break;
+      case "m":
+        handleMuted();
         break;
       default:
         console.log(`
