@@ -65,12 +65,12 @@ body {
   font-family: "Mulish", sans-serif;
   height: 100vh;
   user-select: none;
-  background-image: url(../images/music_player2.png);
+  background-image: url(../images/music.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.194);
 }
 
 .container {
@@ -81,11 +81,13 @@ body {
 
 .music {
   max-width: 500px;
+  padding: 0 15px;
   margin: 0 auto;
   width: 100%;
-  border-radius: 12px;
+  height: 100vh;
   padding-top: 30px;
   position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .music__thumb {
   position: relative;
