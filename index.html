@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HỌC LẬP TRÌNH WEB</title>
+  <link rel="shortcut icon" href="/images/icon-website.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="music">
+      <div class="music__thumb"></div>
+      <h3 class="music__name"></h3>
+      <h4 class="music__singer"></h4>
+      <div class="music__progress">
+        <div class="music__progress--inner">
+          <input class="music__range" type="range">
+          <div class="music__track"></div>
+        </div>
+      </div>
+      <audio class="music__song">
+      </audio>
+      <div class="music__timer">
+        <div class="music__current"></div>
+        <div class="music__duration"></div>
+      </div>
+      <div class="music__control">
+        <div class="btn btn__repeat">
+          <i class="fas fa-redo"></i>
+        </div>
+        <div class="btn btn__prev">
+          <i class="fas fa-step-backward"></i>
+        </div>
+        <div class="btn btn__play">
+          <div class="btn__play--inner">
+            <i class="fas fa-play icon__play"></i>
+          </div>
+        </div>
+        <div class="btn btn__next">
+          <i class="fas fa-step-forward"></i>
+        </div>
+        <div class="btn btn__random">
+          <i class="fas fa-random"></i>
+        </div>
+      </div>
+      <div class="music__volume">
+        <div class="volume__btn volume__muted">
+          <i class="fa-solid fa-volume-high unmute"></i>
+        </div>
+        <div class="volume__btn volume__down">
+          <i class="fa-solid fa-minus"></i>
+        </div>
+        <div class="volume__range">
+          <div class="volume__range--inner">
+            <input class="volume__input" type="range">
+            <div class="volume__track"></div>
+            <div class="volume__value"></div>
+          </div>
+        </div>
+        <div class="volume__btn volume__up">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+      </div>
+    </div>
+    <div class="playlist"></div>
+  </div>
+  <script src="/javascripts/main.js"></script>
+</body>
+
+</html>
