@@ -153,6 +153,8 @@ window.addEventListener("load", function () {
   let isPlaying = true;
   let isMuted = false;
   let unmuteVolume;
+  let returnVolume;
+  let isMouseDown = false;
   let isRepeat = false;
   let isRandom = false;
   let timeVolumeValue;
@@ -164,8 +166,10 @@ window.addEventListener("load", function () {
   const currentIndex = musicPlayer.get("indexSong");
   const currentMuted = volumeMusic.get("isMuted");
   const currentIconMuted = volumeMusic.get("iconMuted");
-  const currentVolumeBar = volumeMusic.get("volumeBar");
+  const currentvalueVolumeBar = volumeMusic.get("valueVolumeBar");
+  const currentMouseDown = volumeMusic.get("isMouseDown");
   const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
+  const currentReturnVolume = volumeMusic.get("returnVolume");
   const currentVolumeTrack = volumeMusic.get("volumeTrack");
 
   function localStorageMusic() {
@@ -189,11 +193,17 @@ window.addEventListener("load", function () {
     if (currentIconMuted) {
       muted.innerHTML = currentIconMuted;
     }
-    if (currentVolumeBar) {
-      volumeBar.value = currentVolumeBar;
+    if (currentMouseDown) {
+      isMouseDown = currentMouseDown;
+    }
+    if (currentvalueVolumeBar) {
+      volumeBar.value = currentvalueVolumeBar;
     }
     if (currentUnmuteVolume) {
       unmuteVolume = currentUnmuteVolume;
+    }
+    if (currentReturnVolume) {
+      returnVolume = currentReturnVolume;
     }
   }
   localStorageMusic();
@@ -524,6 +534,10 @@ window.addEventListener("load", function () {
       isMuted = false;
       volumeBar.value = unmuteVolume;
       song.volume = volumeBar.value / 100;
+      if (song.volume === 0 && isMouseDown) {
+        volumeBar.value = returnVolume;
+        song.volume = volumeBar.value / 100;
+      }
     } else {
       muted.innerHTML = `<i class="fa-solid fa-volume-xmark muted"></i>`;
       isMuted = true;
@@ -535,7 +549,7 @@ window.addEventListener("load", function () {
     handleVolumeValue();
     volumeMusic.set("iconMuted", muted.innerHTML);
     volumeMusic.set("isMuted", isMuted);
-    volumeMusic.set("volumeBar", volumeBar.value);
+    volumeMusic.set("valueVolumeBar", volumeBar.value);
   }
 
   function checkVolume() {
@@ -548,7 +562,7 @@ window.addEventListener("load", function () {
     }
     volumeMusic.set("isMuted", isMuted);
     volumeMusic.set("iconMuted", muted.innerHTML);
-    volumeMusic.set("volumeBar", volumeBar.value);
+    volumeMusic.set("valueVolumeBar", volumeBar.value);
   }
 
   function handleVolumeValue() {
@@ -565,6 +579,14 @@ window.addEventListener("load", function () {
       volumeValue.style.visibility = "hidden";
     }, 2000);
   }
+
+  volumeBar.addEventListener("mousedown", function () {
+    isMouseDown = true;
+    song.volume = volumeBar.value / 100;
+    returnVolume = volumeBar.value;
+    volumeMusic.set("isMouseDown", isMouseDown);
+    volumeMusic.set("returnVolume", returnVolume);
+  });
 
   volumeBar.addEventListener("input", handleChangeVolume);
   function handleChangeVolume() {
