@@ -3,119 +3,122 @@ window.addEventListener("load", function () {
     {
       name: "ONLY",
       singer: "이하이 (LeeHi)",
-      path: "music/only.mp3",
+      path: "audios/only.mp3",
       image: "images/only.jpg",
       id: 1,
     },
     {
       name: "I Love You 3000",
       singer: "Stephanie Poetri",
-      path: "music/i-love-you-3000.mp3",
+      path: "audios/i-love-you-3000.mp3",
       image: "images/i-love-you-3000.jpg",
       id: 2,
     },
     {
       name: "Angel Baby",
       singer: "Troye Sivan",
-      path: "music/angel-baby.mp3",
+      path: "audios/angel-baby.mp3",
       image: "images/angel-baby.jpg",
       id: 3,
     },
     {
       name: "Em Đừng Đi",
       singer: "Sơn Tùng M-TP",
-      path: "music/Em-Dung-Di-Son-Tung-M-TP.mp3",
+      path: "audios/Em-Dung-Di-Son-Tung-M-TP.mp3",
       image: "images/em-dung-di.jpg",
       id: 4,
     },
     {
       name: "Làm Người Luôn Yêu Em",
       singer: "Sơn Tùng M-TP",
-      path: "music/Lam-Nguoi-Luon-Yeu-Em-Son-Tung-M-TP.mp3",
-      image: "images/Lam-Nguoi-Luon-Yeu-Em-Son-Tung-M-TP.jpg",
+      path: "audios/Lam-Nguoi-Luon-Yeu-Em-Son-Tung-M-TP.mp3",
+      image:
+        "images/Lam-Nguoi-Luon-Yeu-Em-Son-Tung-M-TP.jpg",
       id: 5,
     },
     {
       name: "Khuôn Mặt Đáng Thương",
       singer: "Sơn Tùng M-TP",
-      path: "music/khuon-mat-dang-thuong.mp3",
+      path: "audios/khuon-mat-dang-thuong.mp3",
       image: "images/khuon-mat-dang-thuong.jpg",
       id: 6,
     },
     {
       name: "Cơn Mưa Ngang Qua",
       singer: "Sơn Tùng M-TP",
-      path: "music/Con-Mua-Ngang-Qua-Son-Tung-M-TP.mp3",
+      path: "audios/Con-Mua-Ngang-Qua-Son-Tung-M-TP.mp3",
       image: "images/Con-Mua-Ngang-Qua-Son-Tung-M-TP.jpg",
       id: 7,
     },
     {
       name: "Nắng Ấm Xa Dần",
       singer: "Sơn Tùng M-TP",
-      path: "music/Nang-Am-Xa-Dan-Son-Tung-M-TP.mp3",
+      path: "audios/Nang-Am-Xa-Dan-Son-Tung-M-TP.mp3",
       image: "images/Nang-Am-Xa-Dan-Son-Tung-M-TP.jpg",
       id: 8,
     },
     {
       name: "Lệ Anh Vẫn Rơi",
       singer: "Sơn Tùng M-TP",
-      path: "music/Le-Anh-Van-Roi-Son-Tung-M-TP.mp3",
+      path: "audios/Le-Anh-Van-Roi-Son-Tung-M-TP.mp3",
       image: "images/le-anh-van-roi-mtp.jpg",
       id: 9,
     },
     {
       name: "Cơn Mưa Ngang Qua (Part 3)",
       singer: "Sơn Tùng M-TP",
-      path: "music/Con-Mua-Ngang-Qua-Part-3-Son-Tung-M-TP.mp3",
-      image: "images/Con-Mua-Ngang-Qua-Part-3-Son-Tung-M-TP.jpg",
+      path: "audios/Con-Mua-Ngang-Qua-Part-3-Son-Tung-M-TP.mp3",
+      image:
+        "images/Con-Mua-Ngang-Qua-Part-3-Son-Tung-M-TP.jpg",
       id: 10,
     },
     {
       name: "Cơn Mưa Ngang Qua (Part 2)",
       singer: "Sơn Tùng M-TP",
-      path: "music/Con-Mua-Ngang-Qua-Part-2-Son-Tung-M-TP.mp3",
-      image: "images/Con-Mua-Ngang-Qua-Part-2-Son-Tung-M-TP.jpg",
+      path: "audios/Con-Mua-Ngang-Qua-Part-2-Son-Tung-M-TP.mp3",
+      image:
+        "images/Con-Mua-Ngang-Qua-Part-2-Son-Tung-M-TP.jpg",
       id: 11,
     },
     {
       name: "Em Không Cô Đơn",
       singer: "Kha",
-      path: "music/Em Không Cô Đơn.mp3",
+      path: "audios/Em Không Cô Đơn.mp3",
       image: "images/em-ko-co-don.jpg",
       id: 12,
     },
     {
       name: "Em Có Nghe",
       singer: "Kha",
-      path: "music/Em Có Nghe.mp3",
+      path: "audios/Em Có Nghe.mp3",
       image: "images/em-có-nghe.jpg",
       id: 13,
     },
     {
       name: "Lời Yêu Ngây Dại",
       singer: "Kha",
-      path: "music/Lời Yêu Ngây Dại.mp3",
+      path: "audios/Lời Yêu Ngây Dại.mp3",
       image: "images/Lời Yêu Ngây Dại.jpg",
       id: 14,
     },
     {
       name: "At My Worst",
       singer: "Pink Sweat",
-      path: "music/Pink Sweat  At My Worst Official Audio.mp3",
+      path: "audios/Pink Sweat  At My Worst Official Audio.mp3",
       image: "images/At My Worst.jpg",
       id: 15,
     },
     {
       name: "THẰNG ĐIÊN",
       singer: "JUSTATEE x PHƯƠNG LY",
-      path: "music/THẰNG ĐIÊN.mp3",
+      path: "audios/THẰNG ĐIÊN.mp3",
       image: "images/THẰNG ĐIÊN.jpg",
       id: 16,
     },
     {
       name: "Đã Lỡ Yêu Em Nhiều",
       singer: "JustaTee",
-      path: "music/JustaTee  Đã Lỡ Yêu Em Nhiều.mp3",
+      path: "audios/JustaTee  Đã Lỡ Yêu Em Nhiều.mp3",
       image: "images/Đã Lỡ Yêu Em Nhiều.jpg",
       id: 17,
     },
@@ -124,22 +127,36 @@ window.addEventListener("load", function () {
   const playBtn = document.querySelector(".btn__play");
   const nextBtn = document.querySelector(".btn__next");
   const prevBtn = document.querySelector(".btn__prev");
-  const currentTimer = document.querySelector(".music__current");
-  const durationTimer = document.querySelector(".music__duration");
+  const currentTimer = document.querySelector(
+    ".music__current"
+  );
+  const durationTimer = document.querySelector(
+    ".music__duration"
+  );
   const rangeBar = document.querySelector(".music__range");
   const track = document.querySelector(".music__track");
-  const musicThumbnail = document.querySelector(".music__thumb");
+  const musicThumbnail =
+    document.querySelector(".music__thumb");
   const musicName = document.querySelector(".music__name");
-  const musicSinger = document.querySelector(".music__singer");
+  const musicSinger = document.querySelector(
+    ".music__singer"
+  );
   const repeatBtn = document.querySelector(".btn__repeat");
   const randomBtn = document.querySelector(".btn__random");
   const playList = document.querySelector(".playlist");
   const muted = document.querySelector(".volume__muted");
-  const volumeBar = document.querySelector(".volume__input");
-  const volumeTrack = document.querySelector(".volume__track");
+  const volumeBar = document.querySelector(
+    ".volume__input"
+  );
+  const volumeTrack = document.querySelector(
+    ".volume__track"
+  );
   const volumeUp = document.querySelector(".volume__up");
-  const volumeDown = document.querySelector(".volume__down");
-  const volumeValue = document.querySelector(".volume__value");
+  const volumeDown =
+    document.querySelector(".volume__down");
+  const volumeValue = document.querySelector(
+    ".volume__value"
+  );
   const spinning = {
     transform: "rotate(360deg)",
   };
@@ -147,7 +164,10 @@ window.addEventListener("load", function () {
     duration: 10000,
     iterations: Infinity,
   };
-  const musicThumbAnimate = musicThumbnail.animate(spinning, timing);
+  const musicThumbAnimate = musicThumbnail.animate(
+    spinning,
+    timing
+  );
   let playedSong = [];
   let indexSong = 0;
   let isPlaying = true;
@@ -166,10 +186,14 @@ window.addEventListener("load", function () {
   const currentIndex = musicPlayer.get("indexSong");
   const currentMuted = volumeMusic.get("isMuted");
   const currentIconMuted = volumeMusic.get("iconMuted");
-  const currentvalueVolumeBar = volumeMusic.get("valueVolumeBar");
+  const currentvalueVolumeBar = volumeMusic.get(
+    "valueVolumeBar"
+  );
   const currentMouseDown = volumeMusic.get("isMouseDown");
-  const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
-  const currentReturnVolume = volumeMusic.get("returnVolume");
+  const currentUnmuteVolume =
+    volumeMusic.get("unmuteVolume");
+  const currentReturnVolume =
+    volumeMusic.get("returnVolume");
   const currentVolumeTrack = volumeMusic.get("volumeTrack");
 
   function localStorageMusic() {
@@ -209,7 +233,8 @@ window.addEventListener("load", function () {
   localStorageMusic();
 
   function createStorage(key) {
-    const getValue = JSON.parse(localStorage.getItem(key)) ?? {};
+    const getValue =
+      JSON.parse(localStorage.getItem(key)) ?? {};
     function setValue() {
       localStorage.setItem(key, JSON.stringify(getValue));
     }
@@ -301,7 +326,9 @@ window.addEventListener("load", function () {
     playedSong.push(indexSong);
     let newIndexSong;
     do {
-      newIndexSong = Math.floor(Math.random() * musics.length);
+      newIndexSong = Math.floor(
+        Math.random() * musics.length
+      );
     } while (playedSong.includes(newIndexSong) && playedSong.length < musics.length);
     if (playedSong.length === musics.length) {
       playedSong = [];
@@ -321,8 +348,12 @@ window.addEventListener("load", function () {
                 <img src="${song.image}" draggable="false">
               </div>
               <div class="playlist__body">
-                <h3 class="playlist__title">${song.name}</h3>
-                <p class="playlist__author">${song.singer}</p>
+                <h3 class="playlist__title">${
+                  song.name
+                }</h3>
+                <p class="playlist__author">${
+                  song.singer
+                }</p>
               </div>
               <div class="playlist__option">
                 <i class="fas fa-ellipsis-h icon__option"></i>
@@ -336,7 +367,8 @@ window.addEventListener("load", function () {
 
   function smoothScroll(selector, duration) {
     const viewportHeight = window.innerHeight;
-    const heightElementSong = playList.firstElementChild.offsetHeight;
+    const heightElementSong =
+      playList.firstElementChild.offsetHeight;
     const target = document.querySelector(selector);
     const targetPosition =
       target.getBoundingClientRect().top -
@@ -376,7 +408,8 @@ window.addEventListener("load", function () {
   }
 
   function activeSong() {
-    const isActiveSong = document.querySelector(".song__active");
+    const isActiveSong =
+      document.querySelector(".song__active");
     if (isActiveSong) {
       isActiveSong.classList.remove("song__active");
     }
@@ -388,10 +421,16 @@ window.addEventListener("load", function () {
 
   playList.addEventListener("click", playSongWhenClick);
   function playSongWhenClick(e) {
-    const songNode = e.target.closest(".playlist__song:not(.song__active)");
-    const optionNode = e.target.closest(".playlist__option");
+    const songNode = e.target.closest(
+      ".playlist__song:not(.song__active)"
+    );
+    const optionNode = e.target.closest(
+      ".playlist__option"
+    );
     if (songNode && !optionNode) {
-      indexSong = Number(songNode.getAttribute("data-index"));
+      indexSong = Number(
+        songNode.getAttribute("data-index")
+      );
       loadCurrentSong(indexSong);
       isPlaying = true;
       playAndPauseMusic();
@@ -500,11 +539,15 @@ window.addEventListener("load", function () {
     rangeBar.max = song.duration;
     rangeBar.value = song.currentTime;
     handleProgressBar();
-    currentTimer.textContent = formatTimer(song.currentTime);
+    currentTimer.textContent = formatTimer(
+      song.currentTime
+    );
     if (!song.duration) {
       durationTimer.textContent = `00:00`;
     } else {
-      durationTimer.textContent = formatTimer(song.duration);
+      durationTimer.textContent = formatTimer(
+        song.duration
+      );
     }
     requestAnimationFrame(updateSong);
   }
@@ -519,7 +562,9 @@ window.addEventListener("load", function () {
   }
 
   function handleProgressBar() {
-    track.style.width = `${(rangeBar.value / song.duration) * 100}%`;
+    track.style.width = `${
+      (rangeBar.value / song.duration) * 100
+    }%`;
   }
 
   function handleVolumeBar() {
