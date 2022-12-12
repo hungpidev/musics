@@ -7,6 +7,20 @@ window.addEventListener("load", function () {
       image: "images/angel-baby.jpg",
       id: 1,
     },
+    {
+      name: "Head In The Clouds",
+      singer: "Hayd",
+      path: "audios/Head In the Clouds - Hayd.mp3",
+      image: "images/Head In the Clouds.jpg",
+      id: 2,
+    },
+    {
+      name: "Under The Influence",
+      singer: "Chris Brown",
+      path: "/audios/UnderTheInfluence-ChrisBrown.mp3",
+      image: "/images/UnderTheInfluence.webp",
+      id: 3,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
