@@ -646,11 +646,8 @@ window.addEventListener("load", function () {
 
   volumeDown.addEventListener("click", handleVolumeDown);
   function handleVolumeDown() {
-    if (volumeBar.value % 10 !== 0) {
-      volumeBar.value = Number(volumeBar.value) + 10;
-    }
     while (volumeBar.value % 10 !== 0) {
-      volumeBar.value--;
+      volumeBar.value++;
     }
     volumeBar.value = Number(volumeBar.value) - 10;
     song.volume = volumeBar.value / 100;
@@ -664,11 +661,8 @@ window.addEventListener("load", function () {
 
   volumeUp.addEventListener("click", handleVolumeUp);
   function handleVolumeUp() {
-    if (volumeBar.value % 10 !== 0) {
-      volumeBar.value = Number(volumeBar.value) - 10;
-    }
     while (volumeBar.value % 10 !== 0) {
-      volumeBar.value++;
+      volumeBar.value--;
     }
     volumeBar.value = Number(volumeBar.value) + 10;
     song.volume = volumeBar.value / 100;
