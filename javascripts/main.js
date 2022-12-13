@@ -28,6 +28,35 @@ window.addEventListener("load", function () {
       image: "/images/Paris in the Rain.webp",
       id: 4,
     },
+    {
+      name: "Beautiful",
+      singer: "Bazzi feat. Camila Cabello",
+      path: "/audios/Beautiful - Bazzi_ Camila Cabello.mp3",
+      image:
+        "/images/Bazzi feat. Camila Cabello - Beautiful.jpg",
+      id: 5,
+    },
+    {
+      name: "I.F.L.Y.",
+      singer: "Bazzi",
+      path: "/audios/Ifly-Bazzi.mp3",
+      image: "/images/I.F.L.Y..jpg",
+      id: 6,
+    },
+    {
+      name: "Solo",
+      singer: "Clean Bandit feat. Demi Lovato",
+      path: "/audios/SoloFeatDemiLovato-CleanBandit.mp3",
+      image: "/images/Clean Bandit - Solo.jpg",
+      id: 7,
+    },
+    {
+      name: "Night Changes",
+      singer: "One Direction",
+      path: "/audios/NightChanges-OneDirection.mp3",
+      image: "/images/One Direction - Night Changes.jpg",
+      id: 8,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
