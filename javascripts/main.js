@@ -17,9 +17,16 @@ window.addEventListener("load", function () {
     {
       name: "Under The Influence",
       singer: "Chris Brown",
-      path: "/audios/UnderTheInfluence-ChrisBrown.mp3",
-      image: "/images/UnderTheInfluence.webp",
+      path: "audios/UnderTheInfluence-ChrisBrown.mp3",
+      image: "images/UnderTheInfluence.webp",
       id: 3,
+    },
+    {
+      name: "Paris in the Rain",
+      singer: "Lauv",
+      path: "/audios/Paris In The Rain - Lauv.mp3",
+      image: "/images/Paris in the Rain.webp",
+      id: 4,
     },
   ];
   const song = document.querySelector(".music__song");
