@@ -402,13 +402,17 @@ body {
   left: -110px;
   width: 100px;
   height: 35px;
-  background-color: #6a6a6a;
+  background-color: #f61e6a;
   color: #fff;
+  font-weight: 700;
   border-radius: 5px;
   visibility: hidden;
 }
 .playlist__option--load:active {
   opacity: 0.7;
+}
+.playlist__option--show {
+  visibility: visible;
 }
 .playlist__option:hover {
   background-color: #6a6a6a;

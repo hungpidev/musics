@@ -355,14 +355,19 @@ body {
       position: absolute;
       left: -110px;
       @include size(100px, 35px);
-      background-color: #6a6a6a;
+      background-color: #f61e6a;
       color: #fff;
+      font-weight: 700;
       border-radius: 5px;
       visibility: hidden;
 
       &:active {
         opacity: 0.7;
       }
+    }
+
+    &--show {
+      visibility: visible;
     }
 
     &:hover {

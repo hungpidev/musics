@@ -345,9 +345,13 @@ window.addEventListener("load", function () {
       function handleDownload(e) {
         download.forEach((downloadE, downloadIndex) => {
           if (optionIndex === downloadIndex) {
-            downloadE.style.visibility = "visible";
+            downloadE.classList.toggle(
+              "playlist__option--show"
+            );
           } else {
-            downloadE.style.visibility = "hidden";
+            downloadE.classList.remove(
+              "playlist__option--show"
+            );
           }
         });
       }
