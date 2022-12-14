@@ -57,6 +57,36 @@ window.addEventListener("load", function () {
       image: "/images/One Direction - Night Changes.jpg",
       id: 8,
     },
+    {
+      name: "Right Now (Na Na Na)",
+      singer: "Akon",
+      path: "/audios/Right now Na Na Na_ - Akon.mp3",
+      image: "/images/Akon - Right Now (Na Na Na).jpg",
+      id: 9,
+    },
+    {
+      name: "Real Friends",
+      singer: "Camila Cabello",
+      path: "/audios/RealFriends-CamilaCabello.mp3",
+      image: "/images/Camila Cabello - Real Friends.jpg",
+      id: 10,
+    },
+    {
+      name: "Dusk Till Dawn",
+      singer: "ZAYN ft. Sia",
+      path: "/audios/DuskTillDawn-ZaynSia.mp3",
+      image:
+        "/images/ZAYN - Dusk Till Dawn (Official Video) ft. Sia.jpg",
+      id: 11,
+    },
+    {
+      name: "Broken Angel",
+      singer: "Arash feat. Helena",
+      path: "/audios/Broken Angel - Arash_ Helena.mp3",
+      image:
+        "/images/Arash feat. Helena - Broken Angel.jpg",
+      id: 12,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
