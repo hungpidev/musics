@@ -353,6 +353,17 @@ body {
     visibility: hidden;
     transition: 0.25s linear;
 
+    &--load {
+      @include flexBox(center, center);
+      position: absolute;
+      left: -110px;
+      @include size(100px, 35px);
+      background-color: #6a6a6a;
+      color: #fff;
+      border-radius: 5px;
+      visibility: hidden;
+    }
+
     &:hover {
       background-color: #6a6a6a;
     }

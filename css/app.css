@@ -395,6 +395,21 @@ body {
   visibility: hidden;
   transition: 0.25s linear;
 }
+.playlist__option--load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  left: -110px;
+  width: 100px;
+  height: 35px;
+  background-color: #6a6a6a;
+  color: #fff;
+  border-radius: 5px;
+  visibility: hidden;
+}
 .playlist__option:hover {
   background-color: #6a6a6a;
 }

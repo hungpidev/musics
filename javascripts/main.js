@@ -37,10 +37,10 @@ window.addEventListener("load", function () {
       id: 5,
     },
     {
-      name: "I.F.L.Y.",
+      name: "I Fucking Love You",
       singer: "Bazzi",
       path: "/audios/Ifly-Bazzi.mp3",
-      image: "/images/I.F.L.Y..jpg",
+      image: "/images/I.F.L.Y.jpg",
       id: 6,
     },
     {
@@ -321,6 +321,9 @@ window.addEventListener("load", function () {
                 }</p>
               </div>
               <div class="playlist__option">
+                <a href="${musics[index].path}" download="${
+          musics[index].name
+        }" class="playlist__option--load">Download</a>
                 <i class="fas fa-ellipsis-h icon__option"></i>
               </div>
             </div>
@@ -329,6 +332,28 @@ window.addEventListener("load", function () {
       .join("");
   }
   renderMusic();
+
+  function downloadSong() {
+    const option = document.querySelectorAll(
+      ".playlist__option"
+    );
+    const download = document.querySelectorAll(
+      ".playlist__option--load"
+    );
+    option.forEach((optionE, optionIndex) => {
+      optionE.addEventListener("click", handleDownload);
+      function handleDownload(e) {
+        download.forEach((downloadE, downloadIndex) => {
+          if (optionIndex === downloadIndex) {
+            downloadE.style.visibility = "visible";
+          } else {
+            downloadE.style.visibility = "hidden";
+          }
+        });
+      }
+    });
+  }
+  downloadSong();
 
   function smoothScroll(selector, duration) {
     const viewportHeight = window.innerHeight;
