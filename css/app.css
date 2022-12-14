@@ -355,7 +355,6 @@ body {
   background-color: #4c4c4c;
 }
 .playlist__song:hover .playlist__option {
-  opacity: 1;
   visibility: visible;
 }
 .playlist__image {
@@ -391,9 +390,7 @@ body {
   position: relative;
   margin-left: auto;
   padding: 5px;
-  opacity: 0;
   visibility: hidden;
-  transition: 0.25s linear;
 }
 .playlist__option--load {
   display: flex;
@@ -409,6 +406,9 @@ body {
   color: #fff;
   border-radius: 5px;
   visibility: hidden;
+}
+.playlist__option--load:active {
+  opacity: 0.7;
 }
 .playlist__option:hover {
   background-color: #6a6a6a;
