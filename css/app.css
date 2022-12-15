@@ -398,10 +398,11 @@ body {
   justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
+  gap: 5px;
   position: absolute;
-  left: -110px;
-  width: 100px;
-  height: 35px;
+  left: -125px;
+  width: 120px;
+  height: 30px;
   background-color: #f61e6a;
   color: #fff;
   font-weight: 700;

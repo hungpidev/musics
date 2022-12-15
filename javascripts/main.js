@@ -323,7 +323,9 @@ window.addEventListener("load", function () {
               <div class="playlist__option">
                 <a href="${musics[index].path}" download="${
           musics[index].name
-        }" class="playlist__option--load">Download</a>
+        }" class="playlist__option--load">Download
+        <i class="fa-solid fa-download"></i>
+        </a>
                 <i class="fas fa-ellipsis-h icon__option"></i>
               </div>
             </div>
@@ -347,6 +349,19 @@ window.addEventListener("load", function () {
           downloadE.addEventListener("click", function (e) {
             e.stopPropagation();
           });
+
+          window.addEventListener("click", function (e) {
+            if (
+              !e.target.matches(
+                ".playlist__option,.icon__option"
+              )
+            ) {
+              downloadE.classList.remove(
+                "playlist__option--show"
+              );
+            }
+          });
+
           if (optionIndex === downloadIndex) {
             downloadE.classList.toggle(
               "playlist__option--show"
