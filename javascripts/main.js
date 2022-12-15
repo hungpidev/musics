@@ -344,6 +344,9 @@ window.addEventListener("load", function () {
       optionE.addEventListener("click", handleDownload);
       function handleDownload(e) {
         download.forEach((downloadE, downloadIndex) => {
+          downloadE.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
           if (optionIndex === downloadIndex) {
             downloadE.classList.toggle(
               "playlist__option--show"
