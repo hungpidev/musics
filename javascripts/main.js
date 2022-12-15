@@ -335,7 +335,7 @@ window.addEventListener("load", function () {
   }
   renderMusic();
 
-  function downloadSong() {
+  function optionSong() {
     const option = document.querySelectorAll(
       ".playlist__option"
     );
@@ -375,7 +375,7 @@ window.addEventListener("load", function () {
       }
     });
   }
-  downloadSong();
+  optionSong();
 
   function smoothScroll(selector, duration) {
     const viewportHeight = window.innerHeight;
