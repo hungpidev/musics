@@ -87,6 +87,42 @@ window.addEventListener("load", function () {
         "/images/Arash feat. Helena - Broken Angel.jpg",
       id: 12,
     },
+    {
+      name: "Without Me",
+      singer: "Halsey",
+      path: "/audios/Without Me - Halsey.mp3",
+      image: "/images/Halsey - Without Me.jpg",
+      id: 13,
+    },
+    {
+      name: "Never Be the Same",
+      singer: "Camila Cabello",
+      path: "/audios/Never Be The Same - Camila Cabello.mp3",
+      image:
+        "/images/Camila Cabello - Never Be the Same.jpg",
+      id: 14,
+    },
+    {
+      name: "Attention",
+      singer: "Charlie Puth",
+      path: "/audios/Attention - Charlie Puth.mp3",
+      image: "/images/Charlie Puth - Attention.jpg",
+      id: 15,
+    },
+    {
+      name: "As It Was",
+      singer: "Harry Styles",
+      path: "/audios/As It Was - Harry Styles.mp3",
+      image: "/images/Harry Styles - As It Was.jpg",
+      id: 16,
+    },
+    {
+      name: "Kiss Me More",
+      singer: "Doja Cat",
+      path: "/audios/KissMeMore-DojaCat.mp3",
+      image: "/images/Doja Cat - Kiss Me More.jpg",
+      id: 17,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");

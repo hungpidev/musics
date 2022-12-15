@@ -322,7 +322,7 @@ body {
   &__image {
     @include size(44px);
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 16px;
 
     img {
       @include size(100%);
