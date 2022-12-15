@@ -131,6 +131,21 @@ window.addEventListener("load", function () {
         "/images/Shawn Mendes, Camila Cabello - Señorita.jpg",
       id: 18,
     },
+    {
+      name: "Let You Love Me",
+      singer: "Rita Ora",
+      path: "/audios/Let You Love Me - Rita Ora.mp3",
+      image: "/images/Rita Ora - Let You Love Me.jpg",
+      id: 19,
+    },
+    {
+      name: "2U",
+      singer: "David Guetta ft Justin Bieber",
+      path: "/audios/2U - David Guetta_ Justin Bieber.mp3",
+      image:
+        "/images/David Guetta ft Justin Bieber - 2U.jpg",
+      id: 20,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
@@ -314,6 +329,7 @@ window.addEventListener("load", function () {
     } else {
       changeSong("next");
     }
+    musicThumbAnimate.cancel();
     activeSong();
     scrollToActiveSong();
   }
@@ -327,6 +343,7 @@ window.addEventListener("load", function () {
     } else {
       changeSong("prev");
     }
+    musicThumbAnimate.cancel();
     activeSong();
     scrollToActiveSong();
   }
@@ -540,6 +557,7 @@ window.addEventListener("load", function () {
     } else {
       changeSong("next");
     }
+    musicThumbAnimate.cancel();
     activeSong();
     scrollToActiveSong();
   }
