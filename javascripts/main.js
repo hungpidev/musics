@@ -123,6 +123,14 @@ window.addEventListener("load", function () {
       image: "/images/Doja Cat - Kiss Me More.jpg",
       id: 17,
     },
+    {
+      name: "Señorita",
+      singer: "Shawn Mendes, Camila Cabello",
+      path: "/audios/Senorita - Shawn Mendes_ Camila Cabello.mp3",
+      image:
+        "/images/Shawn Mendes, Camila Cabello - Señorita.jpg",
+      id: 18,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
