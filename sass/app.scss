@@ -99,7 +99,6 @@ body {
       position: relative;
       width: 100%;
       height: 3px;
-      border-radius: 100px;
       background-color: #ffffff;
 
       &:hover {
@@ -145,7 +144,6 @@ body {
     left: 0;
     top: 0;
     height: 100%;
-    border-radius: 100px 0 0 100px;
     background-color: #00fa4b;
   }
 
@@ -201,7 +199,6 @@ body {
       width: 100%;
       height: 4px;
       background-color: #fff;
-      border-radius: 10px;
     }
   }
 
@@ -224,7 +221,6 @@ body {
     top: 0;
     height: 4px;
     background-color: #00fa4b;
-    border-radius: 10px 0 0 10px;
   }
 
   &__input {
@@ -232,7 +228,6 @@ body {
     z-index: 99;
     width: 100%;
     height: 100%;
-    border-radius: inherit;
     background-color: #aeaeae;
     cursor: pointer;
     -webkit-appearance: none;
