@@ -152,7 +152,7 @@ body {
   opacity: 1;
 }
 .music__progress--inner:active .music__track {
-  background-color: #00b938;
+  background-color: #616161;
 }
 .music__range {
   position: absolute;
