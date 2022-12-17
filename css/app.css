@@ -427,6 +427,7 @@ body {
   body {
     opacity: 0;
     visibility: hidden;
+    background-image: none;
   }
 }
 
