@@ -146,6 +146,13 @@ window.addEventListener("load", function () {
         "/images/David Guetta ft Justin Bieber - 2U.jpg",
       id: 20,
     },
+    {
+      name: "Somewhere Only We Know",
+      singer: "Hloshit",
+      path: "/audios/SomewhereOnlyWeKnow-hloshit.mp3",
+      image: "/images/Somewhere Only We Know- Hloshit.jpg",
+      id: 21,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
@@ -202,6 +209,25 @@ window.addEventListener("load", function () {
   let isRepeat = false;
   let isRandom = false;
   let timeVolumeValue;
+
+  function createStorage(key) {
+    const getValue =
+      JSON.parse(localStorage.getItem(key)) ?? {};
+    function setValue() {
+      localStorage.setItem(key, JSON.stringify(getValue));
+    }
+    const storage = {
+      get(key) {
+        return getValue[key];
+      },
+      set(key, value) {
+        getValue[key] = value;
+        setValue();
+      },
+    };
+    return storage;
+  }
+
   // storage
   const musicPlayer = createStorage("music__player");
   const volumeMusic = createStorage("volume__music");
@@ -255,24 +281,6 @@ window.addEventListener("load", function () {
     }
   }
   localStorageMusic();
-
-  function createStorage(key) {
-    const getValue =
-      JSON.parse(localStorage.getItem(key)) ?? {};
-    function setValue() {
-      localStorage.setItem(key, JSON.stringify(getValue));
-    }
-    const storage = {
-      get(key) {
-        return getValue[key];
-      },
-      set(key, value) {
-        getValue[key] = value;
-        setValue();
-      },
-    };
-    return storage;
-  }
 
   function initSong() {
     musicThumbAnimate.pause();
