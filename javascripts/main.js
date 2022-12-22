@@ -152,6 +152,20 @@ window.addEventListener("load", function () {
       image: "images/Somewhere Only We Know- Hloshit.jpg",
       id: 21,
     },
+    {
+      name: "Better",
+      singer: "Khalid",
+      path: "audios/Better - Khalid.mp3",
+      image: "images/Khalid - Better.jpg",
+      id: 22,
+    },
+    {
+      name: "Calm Down",
+      singer: "Rema, Selena Gomez",
+      path: "audios/Rema, Selena Gomez - Calm Down.mp3",
+      image: "images/Rema, Selena Gomez - Calm Down.jpg",
+      id: 23,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
