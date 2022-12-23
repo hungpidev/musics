@@ -166,6 +166,56 @@ window.addEventListener("load", function () {
       image: "images/Rema, Selena Gomez - Calm Down.jpg",
       id: 23,
     },
+    {
+      name: "Payphone",
+      singer: "Maroon 5",
+      path: "audios/Payphone - Maroon 5.mp3",
+      image: "images/Payphone- Maroon 5.jpg",
+      id: 24,
+    },
+    {
+      name: "Paradise",
+      singer: "Alan Walker, K-391, Boy In Space",
+      path: "audios/Paradise- Alan Walker, K-391, Boy In Space.mp3",
+      image:
+        "images/Paradise- Alan Walker, K-391, Boy In Space.jpg",
+      id: 25,
+    },
+    {
+      name: "Pano",
+      singer: "Zack Tabudlo",
+      path: "audios/Pano- Zack Tabudlo.mp3",
+      image: "images/Pano- Zack Tabudlo.jpg",
+      id: 26,
+    },
+    {
+      name: "Dancing With Your Ghost",
+      singer: "Sasha Alex Sloan",
+      path: "audios/Dancing With Your Ghost.mp3",
+      image: "images/Dancing With Your Ghost.jpg",
+      id: 27,
+    },
+    {
+      name: "Downtown",
+      singer: "Allie X",
+      path: "/audios/Downtown.mp3",
+      image: "/images/Downtown.jpg",
+      id: 28,
+    },
+    {
+      name: "Is It Just Me?",
+      singer: "Sasha Alex Sloan, Charlie Puth",
+      path: "/audios/Is It Just Me.mp3",
+      image: "/images/Is It Just Me.jpg",
+      id: 29,
+    },
+    {
+      name: "This Is What You Came For",
+      singer: "Calvin Harris",
+      path: "/audios/This Is What You Came For.mp3",
+      image: "/images/This Is What You Came For.jpg",
+      id: 30,
+    },
   ];
   const song = document.querySelector(".music__song");
   const playBtn = document.querySelector(".btn__play");
