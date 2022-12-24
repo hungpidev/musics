@@ -229,6 +229,7 @@ window.addEventListener("load", function () {
   );
   const rangeBar = document.querySelector(".music__range");
   const track = document.querySelector(".music__track");
+  const slider = document.querySelector(".music__slider");
   const musicThumbnail =
     document.querySelector(".music__thumb");
   const musicName = document.querySelector(".music__name");
@@ -708,6 +709,9 @@ window.addEventListener("load", function () {
 
   function handleProgressBar() {
     track.style.width = `${
+      (rangeBar.value / song.duration) * 100
+    }%`;
+    slider.style.left = `${
       (rangeBar.value / song.duration) * 100
     }%`;
   }

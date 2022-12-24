@@ -130,47 +130,52 @@ body {
   margin-bottom: 35px;
 }
 .music__progress {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   height: 6px;
-  border-radius: 100px;
   margin-bottom: 10px;
   cursor: pointer;
 }
 .music__progress--inner {
   position: relative;
   width: 100%;
-  height: 5px;
+  height: 100%;
   background-color: #ffffff;
+  border-radius: 30px;
+  overflow: hidden;
 }
-.music__progress--inner:hover {
-  height: 6px;
-}
-.music__progress--inner:hover .music__range::-webkit-slider-thumb {
+.music__progress--inner:hover + .music__slider {
   opacity: 1;
 }
-.music__progress--inner:active .music__track {
-  background-color: #616161;
-}
 .music__range {
+  background: transparent;
+  -webkit-appearance: none;
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 999;
+  z-index: 9;
   cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
 }
 .music__range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+  width: 30px;
+  height: 30px;
   background-color: #fff;
+  -webkit-appearance: none;
+  opacity: 0;
+}
+.music__range:active + .music__progress--inner .music__track {
+  background-color: #616161;
+}
+.music__slider {
   width: 14px;
   height: 14px;
+  background-color: #ffffff;
   border-radius: 50%;
-  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .music__track {
   position: absolute;
