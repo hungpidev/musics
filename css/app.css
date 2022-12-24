@@ -143,7 +143,6 @@ body {
   width: 100%;
   height: 5px;
   background-color: #ffffff;
-  border-radius: 100px;
 }
 .music__progress--inner:hover {
   height: 6px;
@@ -158,7 +157,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 100px;
   z-index: 999;
   cursor: pointer;
   -webkit-appearance: none;
@@ -179,7 +177,6 @@ body {
   left: 0;
   top: 0;
   height: 100%;
-  border-radius: 100px;
   background-color: #00fa4b;
 }
 .music__timer {
