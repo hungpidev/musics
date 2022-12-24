@@ -98,11 +98,12 @@ body {
     &--inner {
       position: relative;
       width: 100%;
-      height: 3px;
+      height: 5px;
       background-color: #ffffff;
+      border-radius: 100px;
 
       &:hover {
-        height: 4px;
+        height: 6px;
 
         .music__range {
           &::-webkit-slider-thumb {
@@ -123,6 +124,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 100px;
     z-index: 999;
     cursor: pointer;
     -webkit-appearance: none;
@@ -133,7 +135,7 @@ body {
       -webkit-appearance: none;
       appearance: none;
       background-color: #fff;
-      @include size(12px);
+      @include size(14px);
       border-radius: 50%;
       opacity: 0;
     }
@@ -144,6 +146,7 @@ body {
     left: 0;
     top: 0;
     height: 100%;
+    border-radius: 100px;
     background-color: #00fa4b;
   }
 
