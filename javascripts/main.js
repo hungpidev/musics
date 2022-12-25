@@ -229,7 +229,6 @@ window.addEventListener("load", function () {
   );
   const rangeBar = document.querySelector(".music__range");
   const track = document.querySelector(".music__track");
-  const slider = document.querySelector(".music__slider");
   const musicThumbnail =
     document.querySelector(".music__thumb");
   const musicName = document.querySelector(".music__name");
@@ -711,9 +710,6 @@ window.addEventListener("load", function () {
     track.style.width = `${
       (rangeBar.value / song.duration) * 100
     }%`;
-    slider.style.left = `${
-      (rangeBar.value / song.duration) * 100
-    }%`;
   }
 
   function handleVolumeBar() {
@@ -771,7 +767,7 @@ window.addEventListener("load", function () {
     timeVolumeValue = setTimeout(() => {
       volumeValue.style.opacity = 0;
       volumeValue.style.visibility = "hidden";
-    }, 2000);
+    }, 1000);
   }
 
   volumeBar.addEventListener("mousedown", function () {
