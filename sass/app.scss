@@ -2,10 +2,6 @@
 @import "reset";
 @import "mixin";
 
-html {
-  scroll-behavior: smooth;
-}
-
 body::-webkit-scrollbar {
   width: 10px;
 }

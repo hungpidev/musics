@@ -44,10 +44,6 @@ img {
   max-width: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body::-webkit-scrollbar {
   width: 10px;
 }
