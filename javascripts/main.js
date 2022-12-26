@@ -262,6 +262,7 @@ window.addEventListener("load", function () {
     spinning,
     timing
   );
+
   let playedSong = [];
   let indexSong = 0;
   let isPlaying = true;
@@ -452,6 +453,17 @@ window.addEventListener("load", function () {
                   song.singer
                 }</p>
               </div>
+              <div class="waves ${
+                index === indexSong ? "waves__active" : ""
+              }">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
               <div class="playlist__option">
                 <a href="${musics[index].path}" download="${
           musics[index].name
@@ -554,13 +566,23 @@ window.addEventListener("load", function () {
   function activeSong() {
     const isActiveSong =
       document.querySelector(".song__active");
+    const isActiveWaves = document.querySelector(
+      ".waves__active"
+    );
     if (isActiveSong) {
       isActiveSong.classList.remove("song__active");
+    }
+    if (isActiveWaves) {
+      isActiveWaves.classList.remove("waves__active");
     }
     const activeSongs = document.querySelector(
       `div[data-index="${indexSong}"]`
     );
+    const activeWaves = document.querySelector(
+      `div[data-index="${indexSong}"] .waves`
+    );
     activeSongs.classList.add("song__active");
+    activeWaves.classList.add("waves__active");
   }
 
   playList.addEventListener("click", playSongWhenClick);
