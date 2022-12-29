@@ -248,9 +248,7 @@ function renderMusic() {
                   song.singer
                 }</p>
               </div>
-              <div class="waves ${
-                index === indexSong ? "waves__active" : ""
-              }">
+              <div class="waves">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -373,10 +371,10 @@ function activeSong() {
   const activeSongs = document.querySelector(
     `div[data-index="${indexSong}"]`
   );
+  activeSongs.classList.add("song__active");
   const activeWaves = document.querySelector(
     `div[data-index="${indexSong}"] .waves`
   );
-  activeSongs.classList.add("song__active");
   activeWaves.classList.add("waves__active");
 }
 
@@ -448,10 +446,17 @@ function handleEndedSong() {
 
 playBtn.addEventListener("click", playAndPauseMusic);
 function playAndPauseMusic() {
+  const isActiveWaves = document.querySelector(
+    ".waves__active"
+  );
   if (isPlaying) {
     song.play();
+    activeSong();
   } else {
     song.pause();
+    if (isActiveWaves) {
+      isActiveWaves.classList.remove("waves__active");
+    }
   }
 }
 

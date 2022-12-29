@@ -444,7 +444,7 @@ body {
 }
 
 .waves__active {
-  height: 44px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -452,7 +452,7 @@ body {
 .waves__active span {
   display: block;
   position: relative;
-  background: #000;
+  background-color: #fff;
   height: 100%;
   width: 3px;
   border-radius: 16px;
@@ -461,31 +461,24 @@ body {
 }
 .waves__active span:nth-child(1) {
   animation-delay: 0s;
-  background: #ff8c00;
 }
 .waves__active span:nth-child(2) {
   animation-delay: 0.3s;
-  background: #ffff00;
 }
 .waves__active span:nth-child(3) {
   animation-delay: 0.6s;
-  background: #26d53a;
 }
 .waves__active span:nth-child(4) {
   animation-delay: 0.9s;
-  background: #26e6a3;
 }
 .waves__active span:nth-child(5) {
   animation-delay: 0.6s;
-  background: #1da8e2;
 }
 .waves__active span:nth-child(6) {
   animation-delay: 0.3s;
-  background: #5916ba;
 }
 .waves__active span:nth-child(7) {
   animation-delay: 0s;
-  background: #d418d9;
 }
 
 @keyframes waves {
