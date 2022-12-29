@@ -13,6 +13,13 @@ const musics = [
     image: "/images/Phải Lòng Con Gái Bến Tre.jpg",
     id: 2,
   },
+  {
+    name: "Người Yêu Cô Đơn",
+    singer: "Đạt Long Vinh",
+    path: "/audios/Người Yêu Cô Đơn.mp3",
+    image: "/images/Người Yêu Cô Đơn.jpg",
+    id: 2,
+  },
 ];
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
@@ -484,7 +491,6 @@ function pauseSong() {
 
 rangeBar.addEventListener("change", handleChangeBar);
 function handleChangeBar() {
-  song.currentTime = rangeBar.value;
   handleProgressBar();
   isPlaying = true;
   playAndPauseMusic();

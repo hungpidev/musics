@@ -44,20 +44,10 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 
   &__thumb {
-    position: relative;
     @include size(200px);
     border-radius: 50%;
     margin: 0 auto 40px;
-    box-shadow: 0 0 0 6px #fff, 0 0 0 16px #cccccc;
-
-    &::before {
-      content: "";
-      @include size(20px);
-      background-color: #cccccc;
-      box-shadow: 0 0 0 6px #fff;
-      border-radius: inherit;
-      @include absoluteCenter($direction: "both");
-    }
+    box-shadow: 0 0 0 16px #fff, 0 0 0 20px #767676;
 
     img {
       @include size(100%);
@@ -419,7 +409,7 @@ body {
 }
 
 .waves__active {
-  height: 40px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -429,7 +419,7 @@ body {
     position: relative;
     background-color: #fff;
     height: 100%;
-    width: 3px;
+    width: 2px;
     border-radius: 16px;
     margin: 0 2px;
     animation: waves 1s linear infinite;
