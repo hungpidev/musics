@@ -393,6 +393,7 @@ function playSongWhenClick(e) {
     isPlaying = true;
     playAndPauseMusic();
     activeSong();
+    musicThumbAnimate.cancel();
   }
 }
 
@@ -483,7 +484,6 @@ function pauseSong() {
     `;
   isPlaying = true;
   musicThumbAnimate.pause();
-  console.log(musicThumbAnimate);
 }
 
 rangeBar.addEventListener("change", handleChangeBar);
