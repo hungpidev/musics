@@ -55,6 +55,34 @@ const musics = [
     image: "/images/Đêm Gành Hào Nghe Điệu Hoài Lang.jpg",
     id: 8,
   },
+  {
+    name: "Mùa Xuân Của Mẹ",
+    singer: "Trịnh Lâm Ngân",
+    path: "/audios/Mùa Xuân Của Mẹ.mp3",
+    image: "/images/Mùa Xuân Của Mẹ.jpg",
+    id: 9,
+  },
+  {
+    name: "Nếu Chúng Mình Cách Trở",
+    singer: "Tú Nhi",
+    path: "/audios/Nếu Chúng Mình Cách Trở.mp3",
+    image: "/images/Nếu Chúng Mình Cách Trở.jpg",
+    id: 10,
+  },
+  {
+    name: "Ai Khổ Vì Ai",
+    singer: "Thương Linh",
+    path: "/audios/Ai Khổ Vì Ai.mp3",
+    image: "/images/Ai Khổ Vì Ai.jpg",
+    id: 11,
+  },
+  {
+    name: "Đất Phương Nam",
+    singer: "Lư Nhất Vũ",
+    path: "/audios/Đất Phương Nam.mp3",
+    image: "/images/Đất Phương Nam.jpg",
+    id: 12,
+  },
 ];
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
