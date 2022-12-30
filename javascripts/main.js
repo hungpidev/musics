@@ -450,17 +450,10 @@ function handleEndedSong() {
 
 playBtn.addEventListener("click", playAndPauseMusic);
 function playAndPauseMusic() {
-  const isActiveWaves = document.querySelector(
-    ".waves__active"
-  );
   if (isPlaying) {
     song.play();
-    activeSong();
   } else {
     song.pause();
-    if (isActiveWaves) {
-      isActiveWaves.classList.remove("waves__active");
-    }
   }
 }
 
@@ -472,11 +465,18 @@ function playSong() {
             </div>
           `;
   isPlaying = false;
+  activeSong();
   musicThumbAnimate.play();
 }
 
 song.addEventListener("pause", pauseSong);
 function pauseSong() {
+  const isActiveWaves = document.querySelector(
+    ".waves__active"
+  );
+  if (isActiveWaves) {
+    isActiveWaves.classList.remove("waves__active");
+  }
   playBtn.innerHTML = `
     <div class="btn__play--inner">
     <i class="fas fa-play icon__play"></i>
