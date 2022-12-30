@@ -80,7 +80,7 @@ body {
 
   &__singer {
     font-size: 15px;
-    color: #e5e5e5;
+    color: #cdcdcd;
     font-weight: 700;
     text-align: center;
     margin-bottom: 35px;
@@ -365,14 +365,16 @@ body {
   }
 
   &__title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     margin-bottom: 5px;
+    white-space: nowrap;
   }
 
   &__author {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
+    color: #ffffff80
   }
 
   &__option {

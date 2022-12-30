@@ -18,7 +18,42 @@ const musics = [
     singer: "Đài Phương Trang",
     path: "/audios/Người Yêu Cô Đơn.mp3",
     image: "/images/Người Yêu Cô Đơn.jpg",
-    id: 2,
+    id: 3,
+  },
+  {
+    name: "Xin Đừng Trách Đa Đa",
+    singer: "Võ Đông Điền",
+    path: "/audios/Xin Đừng Trách Đa Đa.mp3",
+    image: "/images/Xin Đừng Trách Đa Đa.jpg",
+    id: 4,
+  },
+  {
+    name: "Hỏi Vợ Ngoại Thành",
+    singer: "Giao Tiên",
+    path: "/audios/Hỏi Vợ Ngoại Thành.mp3",
+    image: "/images/Hỏi Vợ Ngoại Thành.jpg",
+    id: 5,
+  },
+  {
+    name: "Bông Cỏ May",
+    singer: "Trúc Phương",
+    path: "/audios/Bông Cỏ May.mp3",
+    image: "/images/Bông Cỏ May.jpg",
+    id: 6,
+  },
+  {
+    name: "Một Lần Dang Dở",
+    singer: "Trần Thiện Thanh",
+    path: "/audios/Một Lần Dang Dở.mp3",
+    image: "/images/Một Lần Dang Dở.jpg",
+    id: 7,
+  },
+  {
+    name: "Đêm Gành Hào Nghe Điệu Hoài Lang",
+    singer: "Vũ Đức Sao Biển",
+    path: "/audios/Đêm Gành Hào Nghe Điệu Hoài Lang.mp3",
+    image: "/images/Đêm Gành Hào Nghe Điệu Hoài Lang.jpg",
+    id: 8,
   },
 ];
 const song = document.querySelector(".music__song");

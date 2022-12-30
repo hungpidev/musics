@@ -125,7 +125,7 @@ body {
 }
 .music__singer {
   font-size: 15px;
-  color: #e5e5e5;
+  color: #cdcdcd;
   font-weight: 700;
   text-align: center;
   margin-bottom: 35px;
@@ -391,13 +391,15 @@ body {
   object-fit: cover;
 }
 .playlist__title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   margin-bottom: 5px;
+  white-space: nowrap;
 }
 .playlist__author {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5019607843);
 }
 .playlist__option {
   width: 44px;
