@@ -99,6 +99,7 @@ const volumeMusic = createStorage("volume__music");
 const currentRandom = musicPlayer.get("isRandom");
 const currentRepeat = musicPlayer.get("isRepeat");
 const currentIndex = musicPlayer.get("indexSong");
+const currentTimeSong = musicPlayer.get("timeSong");
 const currentMuted = volumeMusic.get("isMuted");
 const currentIconMuted = volumeMusic.get("iconMuted");
 const currentvalueVolumeBar = volumeMusic.get(
@@ -141,6 +142,9 @@ function localStorageMusic() {
   }
   if (currentReturnVolume) {
     returnVolume = currentReturnVolume;
+  }
+  if (currentTimeSong) {
+    song.currentTime = currentTimeSong;
   }
 }
 localStorageMusic();
@@ -515,6 +519,7 @@ function updateSong() {
     durationTimer.textContent = formatTimer(song.duration);
   }
   requestAnimationFrame(updateSong);
+  musicPlayer.set("timeSong", song.currentTime);
 }
 requestAnimationFrame(updateSong);
 
