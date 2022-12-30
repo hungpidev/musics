@@ -1,21 +1,21 @@
 const musics = [
   {
     name: "Ngày Còn Em Bên Tôi",
-    singer: "Đạt Long Vinh",
+    singer: "Trầm Uyên Khanh",
     path: "/audios/Ngày Còn Em Bên Tôi.mp3",
     image: "/images/Ngày Còn Em Bên Tôi.jpg",
     id: 1,
   },
   {
     name: "Phải Lòng Con Gái Bến Tre",
-    singer: "Đạt Long Vinh",
+    singer: "Phan Ni Tấn",
     path: "/audios/Phải Lòng Con Gái Bến Tre.mp3",
     image: "/images/Phải Lòng Con Gái Bến Tre.jpg",
     id: 2,
   },
   {
     name: "Người Yêu Cô Đơn",
-    singer: "Đạt Long Vinh",
+    singer: "Đài Phương Trang",
     path: "/audios/Người Yêu Cô Đơn.mp3",
     image: "/images/Người Yêu Cô Đơn.jpg",
     id: 2,
@@ -58,6 +58,7 @@ const spinning = {
 const timing = {
   duration: 20000,
   iterations: Infinity,
+  delay: 2000,
 };
 const musicThumbAnimate = musicThumbnail.animate(
   spinning,
@@ -482,6 +483,7 @@ function pauseSong() {
     `;
   isPlaying = true;
   musicThumbAnimate.pause();
+  console.log(musicThumbAnimate);
 }
 
 rangeBar.addEventListener("change", handleChangeBar);

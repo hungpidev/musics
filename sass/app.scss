@@ -45,6 +45,7 @@ body {
 
   &__thumb {
     @include size(200px);
+    @include flexBox(center, center);
     border-radius: 50%;
     margin: 0 auto 40px;
     box-shadow: 0 0 0 16px #fff, 0 0 0 20px #767676;
@@ -53,6 +54,19 @@ body {
       @include size(100%);
       border-radius: inherit;
       object-fit: cover;
+      animation: effectThumb 1.5s linear;
+    }
+
+    @keyframes effectThumb {
+      0% {
+        opacity: 0;
+        @include size(50%);
+      }
+
+      100% {
+        opacity: 1;
+        @include size(100%);
+      }
     }
   }
 
