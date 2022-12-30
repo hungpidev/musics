@@ -102,7 +102,6 @@ const currentIndex = musicPlayer.get("indexSong");
 const currentTimeSong = musicPlayer.get("timeSong");
 const currentMuted = volumeMusic.get("isMuted");
 const currentVolumeSong = volumeMusic.get("volumeSong");
-const currentMouseDown = volumeMusic.get("isMouseDown");
 const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
 const currentPrevVolume = volumeMusic.get("prevVolume");
 
@@ -120,9 +119,6 @@ function localStorageMusic() {
   }
   if (currentMuted) {
     isMuted = currentMuted;
-  }
-  if (currentMouseDown) {
-    isMouseDown = currentMouseDown;
   }
   if (currentVolumeSong) {
     volumeBar.value = currentVolumeSong;
@@ -543,7 +539,7 @@ function handleMuted() {
     isMuted = false;
     volumeBar.value = unmuteVolume;
     song.volume = volumeBar.value / 100;
-    if (song.volume === 0 && isMouseDown) {
+    if (song.volume === 0) {
       volumeBar.value = prevVolume;
       song.volume = volumeBar.value / 100;
     }
@@ -588,10 +584,8 @@ function handleTimeVolume() {
 }
 
 volumeBar.addEventListener("mousedown", function () {
-  isMouseDown = true;
   song.volume = volumeBar.value / 100;
   prevVolume = volumeBar.value;
-  volumeMusic.set("isMouseDown", isMouseDown);
   volumeMusic.set("prevVolume", prevVolume);
 });
 
