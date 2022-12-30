@@ -101,7 +101,6 @@ const currentRepeat = musicPlayer.get("isRepeat");
 const currentIndex = musicPlayer.get("indexSong");
 const currentTimeSong = musicPlayer.get("timeSong");
 const currentMuted = volumeMusic.get("isMuted");
-const currentIconMuted = volumeMusic.get("iconMuted");
 const currentVolumeSong = volumeMusic.get("volumeSong");
 const currentMouseDown = volumeMusic.get("isMouseDown");
 const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
@@ -121,9 +120,6 @@ function localStorageMusic() {
   }
   if (currentMuted) {
     isMuted = currentMuted;
-  }
-  if (currentIconMuted) {
-    muted.innerHTML = currentIconMuted;
   }
   if (currentMouseDown) {
     isMouseDown = currentMouseDown;
@@ -154,6 +150,11 @@ function initSong() {
   volumeBar.value = volumeBar.value;
   song.volume = volumeBar.value / 100;
   volumeTrack.style.width = `${volumeBar.value}%`;
+  if (isMuted) {
+    muted.innerHTML = `<i class="fa-solid fa-volume-xmark muted"></i>`;
+  } else {
+    muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
+  }
 }
 initSong();
 
@@ -555,7 +556,6 @@ function handleMuted() {
   handleVolumeBar();
   handleTimeVolume();
   handleVolumeValue();
-  volumeMusic.set("iconMuted", muted.innerHTML);
   volumeMusic.set("isMuted", isMuted);
   volumeMusic.set("volumeSong", volumeBar.value);
 }
@@ -569,7 +569,6 @@ function checkVolume() {
     muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
   }
   volumeMusic.set("isMuted", isMuted);
-  // volumeMusic.set("iconMuted", muted.innerHTML);
   volumeMusic.set("volumeSong", volumeBar.value);
 }
 
