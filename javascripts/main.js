@@ -102,13 +102,10 @@ const currentIndex = musicPlayer.get("indexSong");
 const currentTimeSong = musicPlayer.get("timeSong");
 const currentMuted = volumeMusic.get("isMuted");
 const currentIconMuted = volumeMusic.get("iconMuted");
-const currentvalueVolumeBar = volumeMusic.get(
-  "valueVolumeBar"
-);
+const currentVolumeSong = volumeMusic.get("volumeSong");
 const currentMouseDown = volumeMusic.get("isMouseDown");
 const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
 const currentReturnVolume = volumeMusic.get("returnVolume");
-const currentVolumeTrack = volumeMusic.get("volumeTrack");
 
 function localStorageMusic() {
   if (currentRandom) {
@@ -122,9 +119,6 @@ function localStorageMusic() {
   if (currentIndex) {
     indexSong = currentIndex;
   }
-  if (currentVolumeTrack) {
-    volumeTrack.style.width = currentVolumeTrack;
-  }
   if (currentMuted) {
     isMuted = currentMuted;
   }
@@ -134,8 +128,8 @@ function localStorageMusic() {
   if (currentMouseDown) {
     isMouseDown = currentMouseDown;
   }
-  if (currentvalueVolumeBar) {
-    volumeBar.value = currentvalueVolumeBar;
+  if (currentVolumeSong) {
+    volumeBar.value = currentVolumeSong;
   }
   if (currentUnmuteVolume) {
     unmuteVolume = currentUnmuteVolume;
@@ -539,7 +533,6 @@ function handleProgressBar() {
 
 function handleVolumeBar() {
   volumeTrack.style.width = `${volumeBar.value}%`;
-  volumeMusic.set("volumeTrack", volumeTrack.style.width);
 }
 
 muted.addEventListener("click", handleMuted);
@@ -564,7 +557,7 @@ function handleMuted() {
   handleVolumeValue();
   volumeMusic.set("iconMuted", muted.innerHTML);
   volumeMusic.set("isMuted", isMuted);
-  volumeMusic.set("valueVolumeBar", volumeBar.value);
+  volumeMusic.set("volumeSong", volumeBar.value);
 }
 
 function checkVolume() {
@@ -576,8 +569,8 @@ function checkVolume() {
     muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
   }
   volumeMusic.set("isMuted", isMuted);
-  volumeMusic.set("iconMuted", muted.innerHTML);
-  volumeMusic.set("valueVolumeBar", volumeBar.value);
+  // volumeMusic.set("iconMuted", muted.innerHTML);
+  volumeMusic.set("volumeSong", volumeBar.value);
 }
 
 function handleVolumeValue() {
