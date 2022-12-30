@@ -451,7 +451,20 @@ function handleEndedSong() {
 playBtn.addEventListener("click", playAndPauseMusic);
 function playAndPauseMusic() {
   if (isPlaying) {
-    song.play();
+    const playPromise = song.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        playBtn.innerHTML = `
+            <div class="btn__play--inner">
+              <i class="fas fa-pause icon__pause"></i>
+            </div>
+          `;
+        isPlaying = false;
+        activeSong();
+        musicThumbAnimate.play();
+        console.warn("Click slowly");
+      });
+    }
   } else {
     song.pause();
   }
@@ -681,13 +694,13 @@ function controlKeyboard(e) {
       handleMuted();
       break;
     default:
-      console.log(`
-            Nhấn A để prev
-            Nhấn D để next
-            Nhấn S or Space để play or pause
-            Nhấn Z để repeat
-            Nhấn X để random
-            Nhấn --> or <-- để tua music
+      console.warn(`
+            Press "A" to prev
+            Press "D" to next
+            Press "S" or "Space" to play or pause
+            Press "Z" to repeat
+            Press "X" to random
+            Press "-->" or "<--" to rewind songs
           `);
   }
 }
