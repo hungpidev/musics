@@ -126,6 +126,9 @@ const rangeBar = document.querySelector(".music__range");
 const track = document.querySelector(".music__track");
 const musicThumbnail =
   document.querySelector(".music__thumb");
+const thumbAction = document.querySelector(
+  ".thumb__action"
+);
 const musicName = document.querySelector(".music__name");
 const musicSinger = document.querySelector(
   ".music__singer"
@@ -450,6 +453,25 @@ function scrollToActiveSong() {
   }, 300);
 }
 
+function wavesThumb() {
+  if (isPlaying) {
+    thumbAction.innerHTML = "";
+    thumbAction.style.backgroundColor = "transparent";
+  } else {
+    thumbAction.innerHTML = `
+      <div class="thumb__waves">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+    `;
+    thumbAction.style.backgroundColor =
+      "rgba(0, 0, 0, 0.6)";
+  }
+}
+
 function activeSong() {
   const isActiveSong =
     document.querySelector(".song__active");
@@ -571,6 +593,7 @@ function playSong() {
   isPlaying = false;
   activeSong();
   musicThumbAnimate.play();
+  wavesThumb();
 }
 
 song.addEventListener("pause", pauseSong);
@@ -588,6 +611,7 @@ function pauseSong() {
     `;
   isPlaying = true;
   musicThumbAnimate.pause();
+  wavesThumb();
 }
 
 rangeBar.addEventListener("change", handleChangeBar);
