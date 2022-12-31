@@ -83,6 +83,34 @@ const musics = [
     image: "/images/Đất Phương Nam.jpg",
     id: 12,
   },
+  {
+    name: "Về Quê Ngoại",
+    singer: "Hàn Châu",
+    path: "/audios/Về Quê Ngoại.mp3",
+    image: "/images/Về Quê Ngoại.jpg",
+    id: 13,
+  },
+  {
+    name: "Giã Từ",
+    singer: "Tô Thanh Tùng",
+    path: "/audios/Giã Từ.mp3",
+    image: "/images/Giã Từ.jpg",
+    id: 14,
+  },
+  {
+    name: "Vùng Lá Me Bay",
+    singer: "Anh Việt Thanh",
+    path: "/audios/Vùng Lá Me Bay.mp3",
+    image: "/images/Vùng Lá Me Bay.jpg",
+    id: 15,
+  },
+  {
+    name: "Ru Lại Câu Hò",
+    singer: "Vũ Quốc Việt",
+    path: "/audios/Ru Lại Câu Hò.mp3",
+    image: "/images/Ru Lại Câu Hò.jpg",
+    id: 16,
+  },
 ];
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
