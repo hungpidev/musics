@@ -481,6 +481,14 @@ body {
   position: relative;
   animation: wavesThumbOpacity 0.5s linear;
 }
+@keyframes wavesThumbOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .thumb__waves span {
   position: absolute;
   display: block;
@@ -509,14 +517,6 @@ body {
 .thumb__waves span:nth-child(5) {
   animation-delay: 1s;
   margin-left: 36px;
-}
-@keyframes wavesThumbOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 @keyframes wavesThumb {
   0% {

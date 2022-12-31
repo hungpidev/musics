@@ -446,6 +446,16 @@ body {
     position: relative;
     animation: wavesThumbOpacity 0.5s linear;
 
+    @keyframes wavesThumbOpacity {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
     span {
       position: absolute;
       display: block;
@@ -478,16 +488,6 @@ body {
       &:nth-child(5) {
         animation-delay: 1s;
         margin-left: 36px;
-      }
-    }
-
-    @keyframes wavesThumbOpacity {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
       }
     }
 
