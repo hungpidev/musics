@@ -1,151 +1,54 @@
 const musics = [
   {
-    name: "Ngày Còn Em Bên Tôi",
-    singer: "Trầm Uyên Khanh",
-    path: "/audios/Ngày Còn Em Bên Tôi.mp3",
-    image: "/images/Ngày Còn Em Bên Tôi.jpg",
+    name: "Đoạn Đường Sao Băng",
+    singer: "Kha",
+    path: "/audios/DoanDuongSaoBang-Kha.mp3",
+    image: "/images/DoanDuongSaoBang-Kha.jpg",
     id: 1,
   },
   {
-    name: "Phải Lòng Con Gái Bến Tre",
-    singer: "Phan Ni Tấn",
-    path: "/audios/Phải Lòng Con Gái Bến Tre.mp3",
-    image: "/images/Phải Lòng Con Gái Bến Tre.jpg",
+    name: "Hư Không",
+    singer: "Kha",
+    path: "/audios/HuKhong-Kha.mp3",
+    image: "/images/HuKhong-Kha.jpg",
     id: 2,
   },
   {
-    name: "Người Yêu Cô Đơn",
-    singer: "Đài Phương Trang",
-    path: "/audios/Người Yêu Cô Đơn.mp3",
-    image: "/images/Người Yêu Cô Đơn.jpg",
+    name: "Chúng Ta Rồi Sẽ Hạnh Phúc",
+    singer: "Jack - J97",
+    path: "/audios/ChungTaRoiSeHanhPhuc-JackJ97.mp3",
+    image: "/images/ChungTaRoiSeHanhPhuc-JackJ97.jpg",
     id: 3,
   },
   {
-    name: "Xin Đừng Trách Đa Đa",
-    singer: "Võ Đông Điền",
-    path: "/audios/Xin Đừng Trách Đa Đa.mp3",
-    image: "/images/Xin Đừng Trách Đa Đa.jpg",
+    name: "Em Xinh",
+    singer: "MONO, Onionn",
+    path: "/audios/EmXinh-MONOOnionn.mp3",
+    image: "/images/EmXinh-MONOOnionn.jpg",
     id: 4,
-  },
-  {
-    name: "Hỏi Vợ Ngoại Thành",
-    singer: "Giao Tiên",
-    path: "/audios/Hỏi Vợ Ngoại Thành.mp3",
-    image: "/images/Hỏi Vợ Ngoại Thành.jpg",
-    id: 5,
-  },
-  {
-    name: "Bông Cỏ May",
-    singer: "Trúc Phương",
-    path: "/audios/Bông Cỏ May.mp3",
-    image: "/images/Bông Cỏ May.jpg",
-    id: 6,
-  },
-  {
-    name: "Một Lần Dang Dở",
-    singer: "Trần Thiện Thanh",
-    path: "/audios/Một Lần Dang Dở.mp3",
-    image: "/images/Một Lần Dang Dở.jpg",
-    id: 7,
-  },
-  {
-    name: "Đêm Gành Hào Nghe Điệu Hoài Lang",
-    singer: "Vũ Đức Sao Biển",
-    path: "/audios/Đêm Gành Hào Nghe Điệu Hoài Lang.mp3",
-    image: "/images/Đêm Gành Hào Nghe Điệu Hoài Lang.jpg",
-    id: 8,
-  },
-  {
-    name: "Mùa Xuân Của Mẹ",
-    singer: "Trịnh Lâm Ngân",
-    path: "/audios/Mùa Xuân Của Mẹ.mp3",
-    image: "/images/Mùa Xuân Của Mẹ.jpg",
-    id: 9,
-  },
-  {
-    name: "Nếu Chúng Mình Cách Trở",
-    singer: "Tú Nhi",
-    path: "/audios/Nếu Chúng Mình Cách Trở.mp3",
-    image: "/images/Nếu Chúng Mình Cách Trở.jpg",
-    id: 10,
-  },
-  {
-    name: "Ai Khổ Vì Ai",
-    singer: "Thương Linh",
-    path: "/audios/Ai Khổ Vì Ai.mp3",
-    image: "/images/Ai Khổ Vì Ai.jpg",
-    id: 11,
-  },
-  {
-    name: "Đất Phương Nam",
-    singer: "Lư Nhất Vũ",
-    path: "/audios/Đất Phương Nam.mp3",
-    image: "/images/Đất Phương Nam.jpg",
-    id: 12,
-  },
-  {
-    name: "Về Quê Ngoại",
-    singer: "Hàn Châu",
-    path: "/audios/Về Quê Ngoại.mp3",
-    image: "/images/Về Quê Ngoại.jpg",
-    id: 13,
-  },
-  {
-    name: "Giã Từ",
-    singer: "Tô Thanh Tùng",
-    path: "/audios/Giã Từ.mp3",
-    image: "/images/Giã Từ.jpg",
-    id: 14,
-  },
-  {
-    name: "Vùng Lá Me Bay",
-    singer: "Anh Việt Thanh",
-    path: "/audios/Vùng Lá Me Bay.mp3",
-    image: "/images/Vùng Lá Me Bay.jpg",
-    id: 15,
-  },
-  {
-    name: "Ru Lại Câu Hò",
-    singer: "Vũ Quốc Việt",
-    path: "/audios/Ru Lại Câu Hò.mp3",
-    image: "/images/Ru Lại Câu Hò.jpg",
-    id: 16,
   },
 ];
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
 const nextBtn = document.querySelector(".btn__next");
 const prevBtn = document.querySelector(".btn__prev");
-const currentTimer = document.querySelector(
-  ".music__current"
-);
-const durationTimer = document.querySelector(
-  ".music__duration"
-);
+const currentTimer = document.querySelector(".music__current");
+const durationTimer = document.querySelector(".music__duration");
 const rangeBar = document.querySelector(".music__range");
 const track = document.querySelector(".music__track");
-const musicThumbnail =
-  document.querySelector(".music__thumb");
-const thumbAction = document.querySelector(
-  ".thumb__action"
-);
+const musicThumbnail = document.querySelector(".music__thumb");
+const thumbAction = document.querySelector(".thumb__action");
 const musicName = document.querySelector(".music__name");
-const musicSinger = document.querySelector(
-  ".music__singer"
-);
+const musicSinger = document.querySelector(".music__singer");
 const repeatBtn = document.querySelector(".btn__repeat");
 const randomBtn = document.querySelector(".btn__random");
 const playList = document.querySelector(".playlist");
 const muted = document.querySelector(".volume__muted");
 const volumeBar = document.querySelector(".volume__input");
-const volumeTrack = document.querySelector(
-  ".volume__track"
-);
+const volumeTrack = document.querySelector(".volume__track");
 const volumeUp = document.querySelector(".volume__up");
 const volumeDown = document.querySelector(".volume__down");
-const volumeValue = document.querySelector(
-  ".volume__value"
-);
+const volumeValue = document.querySelector(".volume__value");
 const spinning = {
   transform: "rotate(360deg)",
 };
@@ -154,10 +57,7 @@ const timing = {
   iterations: Infinity,
   delay: 2000,
 };
-const musicThumbAnimate = musicThumbnail.animate(
-  spinning,
-  timing
-);
+const musicThumbAnimate = musicThumbnail.animate(spinning, timing);
 
 let playedSong = [];
 let indexSong = 0;
@@ -171,8 +71,7 @@ let isRandom = false;
 let timeVolumeValue;
 
 function createStorage(key) {
-  const getValue =
-    JSON.parse(localStorage.getItem(key)) ?? {};
+  const getValue = JSON.parse(localStorage.getItem(key)) ?? {};
   function setValue() {
     localStorage.setItem(key, JSON.stringify(getValue));
   }
@@ -313,9 +212,7 @@ function handleRandomSong() {
   playedSong.push(indexSong);
   let newIndexSong;
   do {
-    newIndexSong = Math.floor(
-      Math.random() * musics.length
-    );
+    newIndexSong = Math.floor(Math.random() * musics.length);
   } while (
     playedSong.includes(newIndexSong) &&
     playedSong.length < musics.length
@@ -338,12 +235,8 @@ function renderMusic() {
                 <img src="${song.image}" draggable="false">
               </div>
               <div class="playlist__body">
-                <h3 class="playlist__title">${
-                  song.name
-                }</h3>
-                <p class="playlist__author">${
-                  song.singer
-                }</p>
+                <h3 class="playlist__title">${song.name}</h3>
+                <p class="playlist__author">${song.singer}</p>
               </div>
               <div class="waves">
                 <span></span>
@@ -370,12 +263,8 @@ function renderMusic() {
 renderMusic();
 
 function optionSong() {
-  const option = document.querySelectorAll(
-    ".playlist__option"
-  );
-  const download = document.querySelectorAll(
-    ".playlist__option--load"
-  );
+  const option = document.querySelectorAll(".playlist__option");
+  const download = document.querySelectorAll(".playlist__option--load");
   option.forEach((optionE, optionIndex) => {
     optionE.addEventListener("click", handleDownload);
     function handleDownload(e) {
@@ -385,25 +274,15 @@ function optionSong() {
         });
 
         window.addEventListener("click", function (e) {
-          if (
-            !e.target.matches(
-              ".playlist__option,.icon__option"
-            )
-          ) {
-            downloadE.classList.remove(
-              "playlist__option--show"
-            );
+          if (!e.target.matches(".playlist__option,.icon__option")) {
+            downloadE.classList.remove("playlist__option--show");
           }
         });
 
         if (optionIndex === downloadIndex) {
-          downloadE.classList.toggle(
-            "playlist__option--show"
-          );
+          downloadE.classList.toggle("playlist__option--show");
         } else {
-          downloadE.classList.remove(
-            "playlist__option--show"
-          );
+          downloadE.classList.remove("playlist__option--show");
         }
       });
     }
@@ -413,8 +292,7 @@ optionSong();
 
 function smoothScroll(selector, duration) {
   const viewportHeight = window.innerHeight;
-  const heightElementSong =
-    playList.firstElementChild.offsetHeight;
+  const heightElementSong = playList.firstElementChild.offsetHeight;
   const target = document.querySelector(selector);
   const targetPosition =
     target.getBoundingClientRect().top -
@@ -427,12 +305,7 @@ function smoothScroll(selector, duration) {
       startTime = currentTime;
     }
     const timeElapsed = currentTime - startTime;
-    const run = easeInOut(
-      timeElapsed,
-      startPositon,
-      targetPosition,
-      duration
-    );
+    const run = easeInOut(timeElapsed, startPositon, targetPosition, duration);
     window.scrollTo(0, run);
     if (timeElapsed < duration) {
       requestAnimationFrame(animation);
@@ -467,26 +340,20 @@ function wavesThumb() {
               <span></span>
             </div>
     `;
-    thumbAction.style.backgroundColor =
-      "rgba(0, 0, 0, 0.6)";
+    thumbAction.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
   }
 }
 
 function activeSong() {
-  const isActiveSong =
-    document.querySelector(".song__active");
-  const isActiveWaves = document.querySelector(
-    ".waves__active"
-  );
+  const isActiveSong = document.querySelector(".song__active");
+  const isActiveWaves = document.querySelector(".waves__active");
   if (isActiveSong) {
     isActiveSong.classList.remove("song__active");
   }
   if (isActiveWaves) {
     isActiveWaves.classList.remove("waves__active");
   }
-  const activeSongs = document.querySelector(
-    `div[data-index="${indexSong}"]`
-  );
+  const activeSongs = document.querySelector(`div[data-index="${indexSong}"]`);
   activeSongs.classList.add("song__active");
   const activeWaves = document.querySelector(
     `div[data-index="${indexSong}"] .waves`
@@ -496,9 +363,7 @@ function activeSong() {
 
 playList.addEventListener("click", playSongWhenClick);
 function playSongWhenClick(e) {
-  const songNode = e.target.closest(
-    ".playlist__song:not(.song__active)"
-  );
+  const songNode = e.target.closest(".playlist__song:not(.song__active)");
   const optionNode = e.target.closest(".playlist__option");
   if (songNode && !optionNode) {
     indexSong = Number(songNode.getAttribute("data-index"));
@@ -598,9 +463,7 @@ function playSong() {
 
 song.addEventListener("pause", pauseSong);
 function pauseSong() {
-  const isActiveWaves = document.querySelector(
-    ".waves__active"
-  );
+  const isActiveWaves = document.querySelector(".waves__active");
   if (isActiveWaves) {
     isActiveWaves.classList.remove("waves__active");
   }
@@ -653,9 +516,7 @@ function formatTimer(number) {
 }
 
 function handleProgressBar() {
-  track.style.width = `${
-    (rangeBar.value / song.duration) * 100
-  }%`;
+  track.style.width = `${(rangeBar.value / song.duration) * 100}%`;
 }
 
 function handleVolumeBar() {
