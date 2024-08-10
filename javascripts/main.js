@@ -1,31 +1,27 @@
 const musics = [
   {
-    name: "Đoạn Đường Sao Băng",
-    singer: "Kha",
-    path: "/audios/DoanDuongSaoBang-Kha.mp3",
-    image: "/images/DoanDuongSaoBang-Kha.jpg",
+    name: "Ánh Dương",
+    singer: "Nguyên., $eth",
+    path: "https://vnso-zn-23-tf-a320-z3.zmdcdn.me/b338335ca559a989827e85127350223d?authen=exp=1723494154~acl=/b338335ca559a989827e85127350223d/*~hmac=33eb2b43c43749a42bb44692b3d0e855",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/e/b/e/d/ebed306c4e77c34f9304c63a96398344.jpg",
     id: 1,
   },
   {
-    name: "Hư Không",
-    singer: "Kha",
-    path: "/audios/HuKhong-Kha.mp3",
-    image: "/images/HuKhong-Kha.jpg",
+    name: "Yêu em chỉ có anh",
+    singer: "Chi Dân",
+    path: "https://vnso-pt-49-tf-a320-z3.zmdcdn.me/1439f5fadc3fb333597d4973b2e09105?authen=exp=1723494537~acl=/1439f5fadc3fb333597d4973b2e09105/*~hmac=c0af7cf6eb6f7afa987fa9a1f1c12fab",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/9/8/980053baca55a66b9af51239bbe3eb19_1399778576.jpg",
     id: 2,
   },
   {
-    name: "Chúng Ta Rồi Sẽ Hạnh Phúc",
-    singer: "Jack - J97",
-    path: "/audios/ChungTaRoiSeHanhPhuc-JackJ97.mp3",
-    image: "/images/ChungTaRoiSeHanhPhuc-JackJ97.jpg",
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
     id: 3,
-  },
-  {
-    name: "Em Xinh",
-    singer: "MONO, Onionn",
-    path: "/audios/EmXinh-MONOOnionn.mp3",
-    image: "/images/EmXinh-MONOOnionn.jpg",
-    id: 4,
   },
 ];
 const song = document.querySelector(".music__song");
