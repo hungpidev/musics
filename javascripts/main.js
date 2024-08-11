@@ -23,6 +23,222 @@ const musics = [
       "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
     id: 3,
   },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
+  {
+    name: "Hư không",
+    singer: "Kha",
+    path: "https://vnso-pt-48-tf-a320-z3.zmdcdn.me/657d25b9ed4fb9523c803b4ff87662a4?authen=exp=1723497180~acl=/657d25b9ed4fb9523c803b4ff87662a4/*~hmac=be54aa9c578725a1cee2039d0c2d0f4d",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/0/f/c/7/0fc79780bfccdd79616671ffa50187dc.jpg",
+    id: 3,
+  },
 ];
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
@@ -66,6 +282,28 @@ let isRepeat = false;
 let isRandom = false;
 let timeVolumeValue;
 let isDragging = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const playlistIcon = document.querySelector(".playlist__icon");
+  const playlistClose = document.querySelector(".playlist__close");
+  const playlist = document.querySelector(".playlist");
+
+  // Ban đầu ẩn nút close
+  playlistClose.style.display = "none";
+
+  // Hiển thị playlist và ẩn icon list, hiện icon close
+  playlistIcon.addEventListener("click", function () {
+    playlist.style.right = "0";
+    playlistIcon.style.display = "none";
+    playlistClose.style.display = "flex";
+  });
+
+  // Ẩn playlist và hiện icon list, ẩn icon close
+  playlistClose.addEventListener("click", function () {
+    playlist.style.right = "-100%";
+    playlistIcon.style.display = "flex";
+    playlistClose.style.display = "none";
+  });
+});
 
 function initSong() {
   musicThumbAnimate.pause();
