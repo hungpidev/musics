@@ -292,14 +292,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hiển thị playlist và ẩn icon list, hiện icon close
   playlistIcon.addEventListener("click", function () {
-    playlist.style.right = "0";
+    playlist.style.bottom = "0%";
     playlistIcon.style.display = "none";
     playlistClose.style.display = "flex";
   });
 
   // Ẩn playlist và hiện icon list, ẩn icon close
   playlistClose.addEventListener("click", function () {
-    playlist.style.right = "-100%";
+    playlist.style.bottom = "-100%";
     playlistIcon.style.display = "flex";
     playlistClose.style.display = "none";
   });
