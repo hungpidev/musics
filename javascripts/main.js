@@ -65,65 +65,7 @@ let isMouseDown = false;
 let isRepeat = false;
 let isRandom = false;
 let timeVolumeValue;
-
-function createStorage(key) {
-  const getValue = JSON.parse(localStorage.getItem(key)) ?? {};
-  function setValue() {
-    localStorage.setItem(key, JSON.stringify(getValue));
-  }
-  const storage = {
-    get(key) {
-      return getValue[key];
-    },
-    set(key, value) {
-      getValue[key] = value;
-      setValue();
-    },
-  };
-  return storage;
-}
-
-// storage
-const musicPlayer = createStorage("music__player");
-const volumeMusic = createStorage("volume__music");
-const currentRandom = musicPlayer.get("isRandom");
-const currentRepeat = musicPlayer.get("isRepeat");
-const currentIndex = musicPlayer.get("indexSong");
-const currentTimeSong = musicPlayer.get("timeSong");
-const currentMuted = volumeMusic.get("isMuted");
-const currentVolumeSong = volumeMusic.get("volumeSong");
-const currentUnmuteVolume = volumeMusic.get("unmuteVolume");
-const currentPrevVolume = volumeMusic.get("prevVolume");
-
-function localStorageMusic() {
-  if (currentRandom) {
-    isRandom = currentRandom;
-    randomBtn.classList.toggle("active");
-  }
-  if (currentRepeat) {
-    isRepeat = currentRepeat;
-    repeatBtn.classList.toggle("active");
-  }
-  if (currentIndex) {
-    indexSong = currentIndex;
-  }
-  if (currentMuted) {
-    isMuted = currentMuted;
-  }
-  if (currentVolumeSong) {
-    volumeBar.value = currentVolumeSong;
-  }
-  if (currentUnmuteVolume) {
-    unmuteVolume = currentUnmuteVolume;
-  }
-  if (currentPrevVolume) {
-    prevVolume = currentPrevVolume;
-  }
-  if (currentTimeSong) {
-    song.currentTime = currentTimeSong;
-  }
-}
-localStorageMusic();
+let isDragging = false;
 
 function initSong() {
   musicThumbAnimate.pause();
@@ -133,7 +75,6 @@ function initSong() {
   musicThumbnail.innerHTML = `
       <img src="${musics[indexSong].image}" draggable="false">
       `;
-  volumeBar.value = volumeBar.value;
   song.volume = volumeBar.value / 100;
   volumeTrack.style.width = `${volumeBar.value}%`;
   if (isMuted) {
@@ -141,6 +82,11 @@ function initSong() {
   } else {
     muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
   }
+
+  song.addEventListener("loadedmetadata", () => {
+    rangeBar.max = song.duration;
+  });
+  updateSong();
 }
 initSong();
 
@@ -149,7 +95,6 @@ function playRandomSong() {
   if (isRepeat) {
     isRepeat = false;
     repeatBtn.classList.toggle("active");
-    musicPlayer.set("isRepeat", isRepeat);
   }
   if (isRandom) {
     isRandom = false;
@@ -157,7 +102,6 @@ function playRandomSong() {
     isRandom = true;
   }
   randomBtn.classList.toggle("active");
-  musicPlayer.set("isRandom", isRandom);
 }
 
 repeatBtn.addEventListener("click", playRepeatSong);
@@ -165,7 +109,6 @@ function playRepeatSong() {
   if (isRandom) {
     isRandom = false;
     randomBtn.classList.toggle("active");
-    musicPlayer.set("isRandom", isRandom);
   }
   if (isRepeat) {
     isRepeat = false;
@@ -173,7 +116,6 @@ function playRepeatSong() {
     isRepeat = true;
   }
   repeatBtn.classList.toggle("active");
-  musicPlayer.set("isRepeat", isRepeat);
 }
 
 nextBtn.addEventListener("click", nextSong);
@@ -472,36 +414,36 @@ function pauseSong() {
   musicThumbAnimate.pause();
   wavesThumb();
 }
+rangeBar.addEventListener("mousedown", function () {
+  isDragging = true;
+});
 
-rangeBar.addEventListener("change", handleChangeBar);
-function handleChangeBar() {
-  handleProgressBar();
-  isPlaying = true;
-  playAndPauseMusic();
-}
-
-rangeBar.addEventListener("input", handleInputBar);
-function handleInputBar() {
+rangeBar.addEventListener("mouseup", function () {
+  isDragging = false;
   song.currentTime = rangeBar.value;
+});
+
+rangeBar.addEventListener("input", function () {
+  currentTimer.textContent = formatTimer(rangeBar.value);
   handleProgressBar();
-  isPlaying = false;
-  playAndPauseMusic();
-}
+});
+
+song.addEventListener("timeupdate", updateSong);
 
 function updateSong() {
-  rangeBar.max = song.duration;
-  rangeBar.value = song.currentTime;
-  handleProgressBar();
-  currentTimer.textContent = formatTimer(song.currentTime);
-  if (!song.duration) {
-    durationTimer.textContent = `00:00`;
-  } else {
-    durationTimer.textContent = formatTimer(song.duration);
+  if (!isDragging) {
+    currentTimer.textContent = formatTimer(song.currentTime);
+    rangeBar.max = song.duration;
+    rangeBar.value = song.currentTime;
+    handleProgressBar();
+
+    if (!song.duration) {
+      durationTimer.textContent = `00:00`;
+    } else {
+      durationTimer.textContent = formatTimer(song.duration);
+    }
   }
-  requestAnimationFrame(updateSong);
-  musicPlayer.set("timeSong", song.currentTime);
 }
-requestAnimationFrame(updateSong);
 
 function formatTimer(number) {
   const minutes = Math.floor(number / 60);
@@ -510,7 +452,6 @@ function formatTimer(number) {
     seconds < 10 ? "0" + seconds : seconds
   }`;
 }
-
 function handleProgressBar() {
   track.style.width = `${(rangeBar.value / song.duration) * 100}%`;
 }
@@ -539,8 +480,6 @@ function handleMuted() {
   handleVolumeBar();
   handleTimeVolume();
   handleVolumeValue();
-  volumeMusic.set("isMuted", isMuted);
-  volumeMusic.set("volumeSong", volumeBar.value);
 }
 
 function checkVolume() {
@@ -551,8 +490,6 @@ function checkVolume() {
     isMuted = false;
     muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
   }
-  volumeMusic.set("isMuted", isMuted);
-  volumeMusic.set("volumeSong", volumeBar.value);
 }
 
 function handleVolumeValue() {
@@ -573,7 +510,6 @@ function handleTimeVolume() {
 volumeBar.addEventListener("mousedown", function () {
   song.volume = volumeBar.value / 100;
   prevVolume = volumeBar.value;
-  volumeMusic.set("prevVolume", prevVolume);
 });
 
 volumeBar.addEventListener("input", handleChangeVolume);
@@ -584,7 +520,6 @@ function handleChangeVolume() {
   handleVolumeBar();
   handleTimeVolume();
   handleVolumeValue();
-  volumeMusic.set("unmuteVolume", unmuteVolume);
 }
 
 volumeDown.addEventListener("click", handleVolumeDown);
@@ -599,7 +534,6 @@ function handleVolumeDown() {
   handleVolumeBar();
   handleTimeVolume();
   handleVolumeValue();
-  volumeMusic.set("unmuteVolume", unmuteVolume);
 }
 
 volumeUp.addEventListener("click", handleVolumeUp);
@@ -614,7 +548,6 @@ function handleVolumeUp() {
   handleVolumeBar();
   handleTimeVolume();
   handleVolumeValue();
-  volumeMusic.set("unmuteVolume", unmuteVolume);
 }
 
 function loadCurrentSong(indexSong) {
@@ -622,57 +555,4 @@ function loadCurrentSong(indexSong) {
   musicName.textContent = musics[indexSong].name;
   musicSinger.textContent = musics[indexSong].singer;
   musicThumbnail.innerHTML = `<img src="${musics[indexSong].image}" draggable="false">`;
-  musicPlayer.set("indexSong", indexSong);
-}
-
-window.addEventListener("keydown", controlKeyboard);
-function controlKeyboard(e) {
-  switch (e.key) {
-    case "s":
-      playAndPauseMusic();
-      break;
-    case " ":
-      playAndPauseMusic();
-      break;
-    case "a":
-      prevSong();
-      break;
-    case "d":
-      nextSong();
-      break;
-    case "z":
-      playRepeatSong();
-      break;
-    case "x":
-      playRandomSong();
-      break;
-    case "ArrowRight":
-      handleInputBar();
-      handleChangeBar();
-      song.currentTime = Number(rangeBar.value) + 2;
-      break;
-    case "ArrowLeft":
-      handleInputBar();
-      handleChangeBar();
-      song.currentTime = Number(rangeBar.value) - 2;
-      break;
-    case ",":
-      handleVolumeDown();
-      break;
-    case ".":
-      handleVolumeUp();
-      break;
-    case "m":
-      handleMuted();
-      break;
-    default:
-      console.warn(`
-            Press "A" to prev
-            Press "D" to next
-            Press "S" or "Space" to play or pause
-            Press "Z" to repeat
-            Press "X" to random
-            Press "-->" or "<--" to rewind songs
-          `);
-  }
 }
