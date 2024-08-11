@@ -153,7 +153,7 @@ body {
     @include flexBox(center, space-between);
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   &__current {
@@ -166,7 +166,7 @@ body {
 
   &__control {
     @include flexBox(center, space-around);
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   &__volume {
@@ -571,10 +571,116 @@ body {
   }
 }
 
-@media screen and (max-width:1280px) {
-  body {
-    opacity: 0;
+@media (max-width: 1024px) {
+  .music {
+    &__range {
+      &::-webkit-slider-thumb {
+        opacity: 1;
+      }
+    }
+  }
+
+  .container {
+    max-width: 100%;
+    min-height: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .playlist {
     visibility: hidden;
-    background-image: none;
+  }
+
+  .music {
+    max-width: 500px;
+    padding: 0 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: auto;
+  }
+
+  .music__thumb {
+    @include size(150px);
+    box-shadow: 0 0 0 10px #fff, 0 0 0 14px #767676;
+  }
+
+  .music__name {
+    font-size: 20px;
+  }
+
+  .music__singer {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .music__progress {
+    margin-bottom: 5px;
+  }
+
+  .music__timer {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    @include size(40px);
+    font-size: 25px;
+  }
+
+  .btn__play {
+    @include size(60px);
+
+    &--inner {
+      @include size(45px);
+    }
+  }
+
+  .music__volume {
+    gap: 10px;
+  }
+
+  .volume__btn {
+    @include size(35px);
+  }
+
+  .volume__range {
+    width: 150px;
+    padding: 10px;
+  }
+
+  .playlist {
+    max-width: 100%;
+    padding: 10px 0;
+  }
+
+  .playlist__song {
+    grid-template-columns: 0.8fr 2.8fr 1.2fr 0.6fr;
+    padding: 6px 12px;
+  }
+
+  .playlist__image {
+    @include size(35px);
+  }
+
+  .playlist__title {
+    font-size: 12px;
+  }
+
+  .playlist__author {
+    font-size: 10px;
+  }
+
+  .playlist__option {
+    @include size(35px);
+  }
+
+  .thumb__container {
+    margin: 0 auto 20px;
+  }
+
+  .thumb__action {
+    @include size(150px);
   }
 }

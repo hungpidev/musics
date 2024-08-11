@@ -423,13 +423,21 @@ rangeBar.addEventListener("mouseup", function () {
   song.currentTime = rangeBar.value;
 });
 
+rangeBar.addEventListener("touchstart", function () {
+  isDragging = true;
+});
+
+rangeBar.addEventListener("touchend", function () {
+  isDragging = false;
+  song.currentTime = rangeBar.value;
+});
+
 rangeBar.addEventListener("input", function () {
   currentTimer.textContent = formatTimer(rangeBar.value);
   handleProgressBar();
 });
 
 song.addEventListener("timeupdate", updateSong);
-
 function updateSong() {
   if (!isDragging) {
     currentTimer.textContent = formatTimer(song.currentTime);
