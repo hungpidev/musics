@@ -677,7 +677,6 @@ body {
     color: #ffffff;
     cursor: pointer;
     z-index: 100;
-    transition: all 0.5s ease-in-out;
   }
 
   .playlist {
@@ -691,7 +690,6 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 99;
-    transition: bottom 0.5s ease-in-out;
   }
   .playlist::-webkit-scrollbar {
     display: none;
@@ -727,6 +725,30 @@ body {
   .thumb__action {
     width: 150px;
     height: 150px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .playlist-show {
+    bottom: 0%;
+    transition: bottom 0.5s ease-in-out;
+  }
+
+  .playlist-hide {
+    bottom: -100%;
+    transition: bottom 0.5s ease-in-out;
   }
 }
 

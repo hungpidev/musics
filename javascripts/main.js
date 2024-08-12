@@ -71,27 +71,35 @@ const playlistIcon = document.querySelector(".playlist__icon");
 const playlistClose = document.querySelector(".playlist__close");
 const playlist = document.querySelector(".playlist");
 
-playlistClose.style.display = "none";
+playlistClose.classList.add("hidden");
 
 function showPlaylist() {
-  playlist.style.bottom = "0%";
-  playlistIcon.style.opacity = "0";
+  playlist.classList.remove("playlist-hide");
+  playlist.classList.add("playlist-show");
+
+  playlistIcon.classList.add("fade-out");
+  playlistIcon.classList.remove("fade-in");
 
   setTimeout(() => {
-    playlistIcon.style.display = "none";
-    playlistClose.style.display = "flex";
-    playlistClose.style.opacity = "1";
+    playlistIcon.classList.add("hidden");
+    playlistClose.classList.remove("hidden");
+    playlistClose.classList.add("fade-in");
+    playlistClose.classList.remove("fade-out");
   }, 500);
 }
 
 function hidePlaylist() {
-  playlist.style.bottom = "-100%";
-  playlistClose.style.opacity = "0";
+  playlist.classList.remove("playlist-show");
+  playlist.classList.add("playlist-hide");
+
+  playlistClose.classList.remove("fade-in");
+  playlistClose.classList.add("fade-out");
 
   setTimeout(() => {
-    playlistClose.style.display = "none";
-    playlistIcon.style.display = "flex";
-    playlistIcon.style.opacity = "1";
+    playlistClose.classList.add("hidden");
+    playlistIcon.classList.remove("hidden");
+    playlistIcon.classList.remove("fade-out");
+    playlistIcon.classList.add("fade-in");
   }, 500);
 }
 
