@@ -33,6 +33,11 @@ body {
   margin: 0 auto;
 }
 
+.playlist__icon,
+.playlist__close {
+  display: none;
+}
+
 .music {
   max-width: 500px;
   padding: 0 15px;
