@@ -677,11 +677,12 @@ body {
     color: #ffffff;
     cursor: pointer;
     z-index: 100;
+    transition: all 0.5s ease-in-out;
   }
 
   .playlist {
     border-radius: 0;
-    padding: 120px 20px 20px 20px;
+    padding: 80px 20px 20px 20px;
     overflow-y: scroll;
     position: fixed;
     bottom: -100%;
