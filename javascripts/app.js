@@ -35,8 +35,6 @@ let indexSong = 0;
 let isPlaying = true;
 let isMuted = false;
 let unmuteVolume;
-let returnVolume;
-let isMouseDown = false;
 let isRepeat = false;
 let isRandom = false;
 let timeVolumeValue;
@@ -240,6 +238,7 @@ function optionSong() {
     }
   });
 }
+
 optionSong();
 
 function smoothScroll(selector, duration) {

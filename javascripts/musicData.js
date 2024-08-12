@@ -47,4 +47,108 @@ export const musics = [
       "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
     id: 6,
   },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
+  {
+    name: "My Everything",
+    singer: "Tiên Tiên",
+    path: "https://vnso-pt-14-tf-a320-z3.zmdcdn.me/ea3ffa00349feace1a563f747742fb0b?authen=exp=1723621707~acl=/ea3ffa00349feace1a563f747742fb0b/*~hmac=482bd2b2c664dc158ead5abb3cfc1480",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/d/7/d78c164a39a468418b4810a8c9178770_1423568518.jpg",
+    id: 6,
+  },
 ];
