@@ -605,7 +605,7 @@ body {
     padding: 0 10px;
     padding-top: 50px;
     padding-bottom: 50px;
-    height: auto;
+    height: 100%;
   }
 
   .music__thumb {
@@ -681,16 +681,19 @@ body {
 
   .playlist {
     border-radius: 0;
-    padding: 50px 20px 20px 20px;
+    padding: 120px 20px 20px 20px;
     overflow-y: scroll;
     position: fixed;
     bottom: -100%;
     left: 0;
     max-width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 99;
     transition: bottom 0.5s ease-in-out;
+  }
+  .playlist::-webkit-scrollbar {
+    display: none;
   }
 
   .playlist__song {
