@@ -71,4 +71,91 @@ export const musics = [
       "https://avatar-ex-swe.nixcdn.com/song/2024/07/30/1/3/2/a/1722288116052_500.jpg",
     id: 9,
   },
+  {
+    name: "2U",
+    singer: "David Guetta ft Justin Bieber",
+    path: "../music/2U.mp3",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BMzliMDNiYzItMTQxOS00YTNlLTlmMjYtOTk5MWY3YWYyNDNhXkEyXkFqcGdeQXVyNDU1NDIzMzY@._V1_FMjpg_UX500_.jpg",
+    id: 10,
+  },
+  {
+    name: "Style",
+    singer: "Taylor Swift",
+    path: "../music/Style.mp3",
+    image:
+      "https://m.media-amazon.com/images/M/MV5BZTliMTIxMTUtYjBkOC00ODJkLTgwZDMtZTVmZTVhYmJmYTJiXkEyXkFqcGdeQXVyMjQ2MTk1OTE@._V1_FMjpg_UX650_.jpg",
+    id: 11,
+  },
+  {
+    name: "Đảng Đã Cho Ta Một Mùa Xuân",
+    singer: "Nguyễn Dũng",
+    path: "../music/Đảng Đã Cho Ta Một Mùa Xuân.mp3",
+    image: "https://static.tuoitre.vn/tto/i/s626/2005/02/03/pa2R9vaL.jpg",
+    id: 12,
+  },
+  {
+    name: "Tình Em Là Đại Dương",
+    singer: "Duy Mạnh",
+    path: "../music/Tình Em Là Đại Dương.mp3",
+    image:
+      "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/covers/f/3/f3ccdd27d2000e3f9255a7e3e2c48800_1315705260.jpg",
+    id: 13,
+  },
+  {
+    name: "Only",
+    singer: "이하이",
+    path: "../music/Only.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2021/08/27/1/4/2/5/1630071516480_500.jpg",
+    id: 14,
+  },
+  {
+    name: "Yours",
+    singer: "Raiden X 찬열 CHANYEOL Ft 이하이, 창모",
+    path: "../music/Yours.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2020/05/12/2/2/0/9/1589279180312_500.jpg",
+    id: 15,
+  },
+  {
+    name: "지나갈테니",
+    singer: "EXO",
+    path: "../music/지나갈테니.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2017/12/26/2/e/3/3/1514280239701_500.jpg",
+    id: 16,
+  },
+  {
+    name: "첫눈",
+    singer: "EXO",
+    path: "../music/첫눈.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2023/01/03/5/6/a/9/1672739081452_500.jpg",
+    id: 17,
+  },
+  {
+    name: "飞鸟和蝉",
+    singer: "任然",
+    path: "../music/飞鸟和蝉.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2020/07/03/8/9/c/9/1593752079734_500.jpg",
+    id: 18,
+  },
+  {
+    name: "คุณและคุณเท่านั้น",
+    singer: "แกงส้ม ธนทัต ชัยอรรถ",
+    path: "../music/คุณและคุณเท่านั้น.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2023/09/20/2/2/5/5/1695196500830_500.jpg",
+    id: 19,
+  },
+  {
+    name: "봄날",
+    singer: "BTS",
+    path: "../music/봄날.mp3",
+    image:
+      "http://dn.joongdo.co.kr/mnt/images/file/2019y/04m/02d/2019040201000301800009061.jpg",
+    id: 20,
+  },
 ];
