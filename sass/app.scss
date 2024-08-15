@@ -63,12 +63,12 @@ body {
 
     @keyframes effectThumb {
       0% {
-        transform: rotateX(90deg);
+        transform: rotateY(-90deg);
         opacity: 0;
       }
 
       100% {
-        transform: rotateX(0);
+        transform: rotateY(0);
         opacity: 1;
       }
     }
@@ -351,7 +351,7 @@ body {
     &:hover {
       background-color: #3b3b3b;
 
-      .playlist__option {
+      .playlist__option--button {
         visibility: visible;
       }
     }
@@ -381,7 +381,7 @@ body {
     color: #ffffff80
   }
 
-  &__option {
+  &__option--button {
     @include size(44px);
     border-radius: 50%;
     @include flexBox(center, center);
@@ -389,27 +389,6 @@ body {
     margin-left: auto;
     padding: 5px;
     visibility: hidden;
-
-    &--load {
-      @include flexBox(center, center);
-      gap: 5px;
-      position: absolute;
-      left: -125px;
-      @include size(120px, 30px);
-      background-color: #f61e6a;
-      color: #fff;
-      font-weight: 700;
-      border-radius: 5px;
-      visibility: hidden;
-
-      &:active {
-        opacity: 0.7;
-      }
-    }
-
-    &--show {
-      visibility: visible;
-    }
 
     &:hover {
       background-color: #6a6a6a;
@@ -421,7 +400,7 @@ body {
   background-color: #3b3b3b;
 
   &:hover {
-    .playlist__option {
+    .playlist__option--button {
       opacity: 1;
       visibility: visible;
     }
@@ -726,12 +705,12 @@ body {
 
   .fade-out {
     opacity: 0;
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
   }
 
   .fade-in {
     opacity: 1;
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
   }
 
   .playlist-show {
@@ -743,4 +722,52 @@ body {
     bottom: -100%;
     transition: bottom 0.5s ease-in-out;
   }
+}
+
+
+
+.context-menu {
+  display: none;
+  position: absolute;
+  backdrop-filter: blur(5px);
+  background: linear-gradient(45deg,
+      rgba(10, 20, 28, 0.2) 0%,
+      rgba(10, 20, 28, 0.7) 100%);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5), 0 2px 2px rgb(0 0 0 / 3%),
+    0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%),
+    0 15px 15px rgb(0 0 0 / 6%), 0 30px 30px rgb(0 0 0 / 7%),
+    0 70px 65px rgb(0 0 0 / 9%);
+  z-index: 10000;
+}
+
+.context-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.context-menu ul li {
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 35px auto;
+
+  i {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  p {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.context-menu ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }

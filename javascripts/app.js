@@ -29,12 +29,12 @@ const timing = {
   delay: 2000,
 };
 const musicThumbAnimate = musicThumbnail.animate(spinning, timing);
-
 let playedSong = [];
 let indexSong = 0;
 let isPlaying = true;
 let isMuted = false;
 let unmuteVolume;
+let prevVolume;
 let isRepeat = false;
 let isRandom = false;
 let timeVolumeValue;
@@ -58,7 +58,7 @@ function showPlaylist() {
     playlistClose.classList.remove("hidden");
     playlistClose.classList.add("fade-in");
     playlistClose.classList.remove("fade-out");
-  }, 500);
+  }, 1000);
 }
 
 function hidePlaylist() {
@@ -73,7 +73,7 @@ function hidePlaylist() {
     playlistIcon.classList.remove("hidden");
     playlistIcon.classList.remove("fade-out");
     playlistIcon.classList.add("fade-in");
-  }, 500);
+  }, 1000);
 }
 
 playlistIcon.addEventListener("click", showPlaylist);
@@ -101,62 +101,6 @@ function initSong() {
   updateSong();
 }
 initSong();
-
-randomBtn.addEventListener("click", playRandomSong);
-function playRandomSong() {
-  if (isRepeat) {
-    isRepeat = false;
-    repeatBtn.classList.toggle("active");
-  }
-  if (isRandom) {
-    isRandom = false;
-  } else {
-    isRandom = true;
-  }
-  randomBtn.classList.toggle("active");
-}
-
-repeatBtn.addEventListener("click", playRepeatSong);
-function playRepeatSong() {
-  if (isRandom) {
-    isRandom = false;
-    randomBtn.classList.toggle("active");
-  }
-  if (isRepeat) {
-    isRepeat = false;
-  } else {
-    isRepeat = true;
-  }
-  repeatBtn.classList.toggle("active");
-}
-
-nextBtn.addEventListener("click", nextSong);
-function nextSong() {
-  if (isRandom) {
-    isPlaying = true;
-    loadCurrentSong(handleRandomSong());
-    playAndPauseMusic();
-  } else {
-    changeSong("next");
-  }
-  musicThumbAnimate.cancel();
-  activeSong();
-  scrollToActiveSong();
-}
-
-prevBtn.addEventListener("click", prevSong);
-function prevSong() {
-  if (isRandom) {
-    isPlaying = true;
-    loadCurrentSong(handleRandomSong());
-    playAndPauseMusic();
-  } else {
-    changeSong("prev");
-  }
-  musicThumbAnimate.cancel();
-  activeSong();
-  scrollToActiveSong();
-}
 
 function handleRandomSong() {
   playedSong.push(indexSong);
@@ -197,12 +141,7 @@ function renderMusic() {
                 <span></span>
                 <span></span>
               </div>
-              <div class="playlist__option">
-                <a href="${musics[index].path}" download="${
-        musics[index].name
-      }" class="playlist__option--load">Download
-        <i class="fa-solid fa-download"></i>
-        </a>
+              <div class="playlist__option--button">
                 <i class="fas fa-ellipsis-h icon__option"></i>
               </div>
             </div>
@@ -212,34 +151,174 @@ function renderMusic() {
 }
 renderMusic();
 
-function optionSong() {
-  const option = document.querySelectorAll(".playlist__option");
-  const download = document.querySelectorAll(".playlist__option--load");
-  option.forEach((optionE, optionIndex) => {
-    optionE.addEventListener("click", handleDownload);
-    function handleDownload(e) {
-      download.forEach((downloadE, downloadIndex) => {
-        downloadE.addEventListener("click", function (e) {
-          e.stopPropagation();
-        });
-
-        window.addEventListener("click", function (e) {
-          if (!e.target.matches(".playlist__option,.icon__option")) {
-            downloadE.classList.remove("playlist__option--show");
-          }
-        });
-
-        if (optionIndex === downloadIndex) {
-          downloadE.classList.toggle("playlist__option--show");
-        } else {
-          downloadE.classList.remove("playlist__option--show");
-        }
-      });
-    }
-  });
+function downloadSong() {
+  const currentSong = musics[indexSong];
+  if (currentSong) {
+    const link = document.createElement("a");
+    link.href = currentSong.path;
+    link.download = currentSong.name;
+    link.target = "_blank";
+    link.click();
+  }
 }
 
-optionSong();
+const contextMenu = document.querySelector(".context-menu");
+function toggleMenu(event) {
+  event.stopPropagation();
+  const songElement = event.currentTarget.closest(".playlist__song");
+  const clickedIndex = songElement.dataset.index;
+  indexSong = clickedIndex;
+
+  // Nếu đang hiển thị context menu ở bài hát khác, cập nhật vị trí menu cho bài hát mới
+  if (
+    contextMenu.style.display === "block" &&
+    contextMenu.dataset.currentIndex !== clickedIndex
+  ) {
+    contextMenu.style.display = "block"; // Duy trì hiển thị menu
+  } else {
+    contextMenu.style.display =
+      contextMenu.style.display === "block" ? "none" : "block";
+  }
+
+  if (contextMenu.style.display === "block") {
+    const menuWidth = contextMenu.offsetWidth;
+    const menuHeight = contextMenu.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+
+    const margin = 10;
+
+    let left = event.clientX + scrollX + margin;
+    let top = event.clientY + scrollY + margin;
+
+    if (left + menuWidth > windowWidth + scrollX - margin * 2) {
+      left = event.clientX + scrollX - menuWidth - margin;
+    }
+
+    if (top + menuHeight > windowHeight + scrollY - margin * 2) {
+      top = event.clientY + scrollY - menuHeight - margin;
+    }
+
+    if (left < margin) {
+      left = margin;
+    }
+
+    if (top < margin) {
+      top = margin;
+    }
+
+    contextMenu.style.left = `${left}px`;
+    contextMenu.style.top = `${top}px`;
+    contextMenu.style.zIndex = 10000;
+    contextMenu.dataset.currentIndex = clickedIndex;
+  }
+}
+
+function hideContextMenu() {
+  contextMenu.style.display = "none";
+}
+
+document.addEventListener("click", handleOutsideClick);
+function handleOutsideClick(event) {
+  if (
+    !contextMenu.contains(event.target) &&
+    !event.target.matches(
+      ".playlist__option--button,.playlist__option--button *"
+    )
+  ) {
+    hideContextMenu();
+  }
+}
+
+document.querySelectorAll(".playlist__option--button").forEach((button) => {
+  button.addEventListener("click", toggleMenu);
+});
+
+document.querySelectorAll(".context-menu ul li").forEach((item) => {
+  item.addEventListener("click", () => {
+    const action = item.dataset.action;
+    if (action) {
+      // Thực hiện hành động dựa trên giá trị của action
+      switch (action) {
+        case "download":
+          downloadSong();
+          break;
+        // Xử lý các hành động khác nếu cần
+        default:
+          console.log(`${action}`);
+      }
+
+      // Ẩn menu sau khi chọn một item
+    }
+    hideContextMenu();
+  });
+});
+
+window.addEventListener("resize", hideContextMenu);
+window.addEventListener("scroll", hideContextMenu);
+
+//
+
+function showContextMenu(event) {
+  event.preventDefault();
+
+  // Hiển thị menu để tính toán kích thước
+  contextMenu.style.display = "block";
+
+  // Lấy kích thước của menu và cửa sổ trình duyệt
+  const menuWidth = contextMenu.offsetWidth;
+  const menuHeight = contextMenu.offsetHeight;
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+
+  // Khoảng cách cần thiết từ các cạnh cửa sổ
+  const margin = 10;
+  // Vị trí nhấp chuột và khoảng cách margin
+  let left = event.clientX + scrollX + margin;
+  let top = event.clientY + scrollY + margin;
+
+  // Điều chỉnh vị trí nếu không đủ chỗ bên phải
+  if (left + menuWidth > windowWidth + scrollX - margin * 2) {
+    left = event.clientX + scrollX - menuWidth - margin;
+  }
+
+  // Điều chỉnh vị trí nếu không đủ chỗ bên dưới
+  if (top + menuHeight > windowHeight + scrollY - margin * 2) {
+    top = event.clientY + scrollY - menuHeight - margin;
+  }
+
+  // Điều chỉnh nếu không đủ chỗ bên trái
+  if (left < margin) {
+    left = margin;
+  }
+
+  // Điều chỉnh nếu không đủ chỗ bên trên
+  if (top < margin) {
+    top = margin;
+  }
+
+  // Thiết lập vị trí cuối cùng cho menu
+  contextMenu.style.left = `${left}px`;
+  contextMenu.style.top = `${top}px`;
+  contextMenu.style.zIndex = 10000; // Đảm bảo menu hiển thị trên các phần tử khác
+}
+
+// Gắn sự kiện contextmenu để hiển thị menu tùy chỉnh
+document.querySelectorAll(".playlist__song").forEach((songElement, index) => {
+  songElement.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    indexSong = index;
+    showContextMenu(event);
+  });
+});
+
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
 
 function smoothScroll(selector, duration) {
   const viewportHeight = window.innerHeight;
@@ -309,7 +388,9 @@ function activeSong() {
   const activeWaves = document.querySelector(
     `div[data-index="${indexSong}"] .waves`
   );
-  activeWaves.classList.add("waves__active");
+  if (!isPlaying) {
+    activeWaves.classList.add("waves__active");
+  }
 }
 
 playList.addEventListener("click", playSongWhenClick);
@@ -327,21 +408,77 @@ function playSongWhenClick(e) {
 }
 
 function changeSong(direction) {
+  isPlaying = true;
   if (direction === "next") {
     indexSong++;
     if (indexSong > musics.length - 1) {
       indexSong = 0;
     }
-    isPlaying = true;
   } else if (direction === "prev") {
     indexSong--;
     if (indexSong < 0) {
       indexSong = musics.length - 1;
     }
-    isPlaying = true;
   }
+
   loadCurrentSong(indexSong);
   playAndPauseMusic();
+}
+
+nextBtn.addEventListener("click", nextSong);
+function nextSong() {
+  if (isRandom) {
+    isPlaying = true;
+    loadCurrentSong(handleRandomSong());
+    playAndPauseMusic();
+  } else {
+    changeSong("next");
+  }
+  musicThumbAnimate.cancel();
+  activeSong();
+  scrollToActiveSong();
+}
+
+prevBtn.addEventListener("click", prevSong);
+function prevSong() {
+  if (isRandom) {
+    isPlaying = true;
+    loadCurrentSong(handleRandomSong());
+    playAndPauseMusic();
+  } else {
+    changeSong("prev");
+  }
+  musicThumbAnimate.cancel();
+  activeSong();
+  scrollToActiveSong();
+}
+
+randomBtn.addEventListener("click", playRandomSong);
+function playRandomSong() {
+  if (isRepeat) {
+    isRepeat = false;
+    repeatBtn.classList.toggle("active");
+  }
+  if (isRandom) {
+    isRandom = false;
+  } else {
+    isRandom = true;
+  }
+  randomBtn.classList.toggle("active");
+}
+
+repeatBtn.addEventListener("click", playRepeatSong);
+function playRepeatSong() {
+  if (isRandom) {
+    isRandom = false;
+    randomBtn.classList.toggle("active");
+  }
+  if (isRepeat) {
+    isRepeat = false;
+  } else {
+    isRepeat = true;
+  }
+  repeatBtn.classList.toggle("active");
 }
 
 function endedRepeatSong() {
@@ -380,20 +517,7 @@ function handleEndedSong() {
 playBtn.addEventListener("click", playAndPauseMusic);
 function playAndPauseMusic() {
   if (isPlaying) {
-    const playPromise = song.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        playBtn.innerHTML = `
-            <div class="btn__play--inner">
-              <i class="fas fa-pause icon__pause"></i>
-            </div>
-          `;
-        isPlaying = false;
-        activeSong();
-        musicThumbAnimate.play();
-        console.warn("Click slowly");
-      });
-    }
+    song.play();
   } else {
     song.pause();
   }
@@ -474,7 +598,11 @@ function formatTimer(number) {
   }`;
 }
 function handleProgressBar() {
-  track.style.width = `${(rangeBar.value / song.duration) * 100}%`;
+  if (song.duration) {
+    track.style.width = `${(rangeBar.value / song.duration) * 100}%`;
+  } else {
+    track.style.width = 0;
+  }
 }
 
 function handleVolumeBar() {
@@ -577,3 +705,34 @@ function loadCurrentSong(indexSong) {
   musicSinger.textContent = musics[indexSong].singer;
   musicThumbnail.innerHTML = `<img src="${musics[indexSong].image}" draggable="false">`;
 }
+
+document.addEventListener("keydown", function (event) {
+  // Shift + Ctrl + I
+  // if (event.shiftKey && event.ctrlKey && event.key === "I") {
+  //   event.preventDefault();
+  // }
+
+  // Ctrl + Shift + J (Console)
+  if (event.ctrlKey && event.shiftKey && event.key === "J") {
+    event.preventDefault();
+  }
+
+  // Ctrl + Shift + C (Element Inspector)
+  if (event.ctrlKey && event.shiftKey && event.key === "C") {
+    event.preventDefault();
+  }
+
+  // Ctrl + U (View Source)
+  if (event.ctrlKey && event.key === "U") {
+    event.preventDefault();
+  }
+
+  // F12 (DevTools)
+  if (event.key === "F12") {
+    event.preventDefault();
+  }
+
+  // if (event.ctrlKey) {
+  //   event.preventDefault();
+  // }
+});
