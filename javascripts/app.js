@@ -193,30 +193,36 @@ function positionContextMenu(event) {
   const scrollX = window.scrollX;
   const scrollY = window.scrollY;
 
-  const margin = 10;
+  const margin = 20; // Khoảng cách 20px từ mép cửa sổ
+  const offset = 15; // Khoảng cách tối thiểu 15px từ con trỏ chuột
 
-  let left = event.clientX + scrollX + margin;
-  let top = event.clientY + scrollY + margin;
+  let left = event.clientX + scrollX + offset;
+  let top = event.clientY + scrollY + offset;
 
-  if (left + menuWidth > windowWidth + scrollX - margin * 2) {
-    left = event.clientX + scrollX - menuWidth - margin;
+  // Kiểm tra nếu menu vượt qua mép phải cửa sổ
+  if (left + menuWidth > windowWidth + scrollX - margin) {
+    left = event.clientX + scrollX - menuWidth - offset;
   }
 
-  if (top + menuHeight > windowHeight + scrollY - margin * 2) {
-    top = event.clientY + scrollY - menuHeight - margin;
+  // Kiểm tra nếu menu vượt qua mép dưới cửa sổ
+  if (top + menuHeight > windowHeight + scrollY - margin) {
+    top = event.clientY + scrollY - menuHeight - offset;
   }
 
-  if (left < margin) {
-    left = margin;
+  // Điều chỉnh vị trí nếu menu bị vượt qua mép trái cửa sổ
+  if (left < scrollX + margin) {
+    left = scrollX + margin;
   }
 
-  if (top < margin) {
-    top = margin;
+  // Điều chỉnh vị trí nếu menu bị vượt qua mép trên cửa sổ
+  if (top < scrollY + margin) {
+    top = scrollY + margin;
   }
 
+  // Thiết lập vị trí cuối cùng cho menu
   contextMenu.style.left = `${left}px`;
   contextMenu.style.top = `${top}px`;
-  contextMenu.style.zIndex = 10000;
+  contextMenu.style.zIndex = 10000; // Đảm bảo menu hiển thị trên các phần tử khác
 }
 
 // Hàm hiển thị menu ngữ cảnh khi nhấp vào nút tùy chọn
@@ -233,8 +239,8 @@ function toggleMenu(event) {
   } else {
     currentClickedIndex = clickedIndex;
     contextMenu.style.display = "block";
-    positionContextMenu(event);
     animationContextMenu();
+    positionContextMenu(event);
   }
 }
 
