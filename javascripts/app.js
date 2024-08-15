@@ -39,6 +39,7 @@ let isRepeat = false;
 let isRandom = false;
 let timeVolumeValue;
 let isDragging = false;
+let currentClickedIndex;
 
 const playlistIcon = document.querySelector(".playlist__icon");
 const playlistClose = document.querySelector(".playlist__close");
@@ -152,7 +153,7 @@ function renderMusic() {
 renderMusic();
 
 function downloadSong() {
-  const currentSong = musics[indexSong];
+  const currentSong = musics[currentClickedIndex];
   if (currentSong) {
     const link = document.createElement("a");
     link.href = currentSong.path;
@@ -167,7 +168,7 @@ function toggleMenu(event) {
   event.stopPropagation();
   const songElement = event.currentTarget.closest(".playlist__song");
   const clickedIndex = songElement.dataset.index;
-  indexSong = clickedIndex;
+  currentClickedIndex = clickedIndex;
 
   // Nếu đang hiển thị context menu ở bài hát khác, cập nhật vị trí menu cho bài hát mới
   if (
@@ -311,7 +312,7 @@ function showContextMenu(event) {
 document.querySelectorAll(".playlist__song").forEach((songElement, index) => {
   songElement.addEventListener("contextmenu", (event) => {
     event.preventDefault();
-    indexSong = index;
+    currentClickedIndex = index;
     showContextMenu(event);
   });
 });

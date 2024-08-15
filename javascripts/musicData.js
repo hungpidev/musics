@@ -158,4 +158,28 @@ export const musics = [
       "http://dn.joongdo.co.kr/mnt/images/file/2019y/04m/02d/2019040201000301800009061.jpg",
     id: 20,
   },
+  {
+    name: "Gửi Anh Xa Nhớ",
+    singer: "Bích Phương",
+    path: "../music/Gửi Anh Xa Nhớ.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2024/06/26/4/8/1/3/45750_500.jpg",
+    id: 21,
+  },
+  {
+    name: "Giấc Mơ Trưa",
+    singer: "Thùy Chi",
+    path: "../music/Giấc Mơ Trưa.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2023/01/13/e/7/9/d/1673581735873_500.jpg",
+    id: 22,
+  },
+  {
+    name: "Nàng Thơ Xứ Huế",
+    singer: "Thùy Chi",
+    path: "../music/Nàng Thơ Xứ Huế.mp3",
+    image:
+      "https://avatar-ex-swe.nixcdn.com/song/2022/11/23/2/7/8/f/1669190354341_500.jpg",
+    id: 23,
+  },
 ];
