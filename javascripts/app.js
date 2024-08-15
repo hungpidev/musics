@@ -39,7 +39,6 @@ let isRepeat = false;
 let isRandom = false;
 let timeVolumeValue;
 let isDragging = false;
-let currentClickedIndex;
 
 const playlistIcon = document.querySelector(".playlist__icon");
 const playlistClose = document.querySelector(".playlist__close");
@@ -152,6 +151,11 @@ function renderMusic() {
 }
 renderMusic();
 
+// Khởi tạo phần tử menu ngữ cảnh
+const contextMenu = document.querySelector(".context-menu");
+let currentClickedIndex = null;
+
+// Hàm tải bài hát
 function downloadSong() {
   const currentSong = musics[currentClickedIndex];
   if (currentSong) {
@@ -163,85 +167,123 @@ function downloadSong() {
   }
 }
 
-const contextMenu = document.querySelector(".context-menu");
-function toggleMenu(event) {
-  event.stopPropagation();
-  const songElement = event.currentTarget.closest(".playlist__song");
-  const clickedIndex = songElement.dataset.index;
-  currentClickedIndex = clickedIndex;
-
-  // Nếu đang hiển thị context menu ở bài hát khác, cập nhật vị trí menu cho bài hát mới
-  if (
-    contextMenu.style.display === "block" &&
-    contextMenu.dataset.currentIndex !== clickedIndex
-  ) {
-    contextMenu.style.display = "block"; // Duy trì hiển thị menu
-  } else {
-    contextMenu.style.display =
-      contextMenu.style.display === "block" ? "none" : "block";
-  }
-
-  if (contextMenu.style.display === "block") {
-    const menuWidth = contextMenu.offsetWidth;
-    const menuHeight = contextMenu.offsetHeight;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const scrollX = window.scrollX;
-    const scrollY = window.scrollY;
-
-    const margin = 10;
-
-    let left = event.clientX + scrollX + margin;
-    let top = event.clientY + scrollY + margin;
-
-    if (left + menuWidth > windowWidth + scrollX - margin * 2) {
-      left = event.clientX + scrollX - menuWidth - margin;
-    }
-
-    if (top + menuHeight > windowHeight + scrollY - margin * 2) {
-      top = event.clientY + scrollY - menuHeight - margin;
-    }
-
-    if (left < margin) {
-      left = margin;
-    }
-
-    if (top < margin) {
-      top = margin;
-    }
-
-    contextMenu.style.left = `${left}px`;
-    contextMenu.style.top = `${top}px`;
-    contextMenu.style.zIndex = 10000;
-    contextMenu.dataset.currentIndex = clickedIndex;
-  }
-}
-
+// Hàm ẩn menu ngữ cảnh
 function hideContextMenu() {
   contextMenu.style.display = "none";
 }
 
-document.addEventListener("click", handleOutsideClick);
+// Hàm tạo hiệu ứng cho menu ngữ cảnh
+function animationContextMenu() {
+  if (contextMenu.classList.contains("show")) {
+    contextMenu.classList.remove("show");
+    setTimeout(() => {
+      contextMenu.classList.add("show");
+    }, 100);
+  } else {
+    contextMenu.classList.add("show");
+  }
+}
+
+// Hàm định vị menu ngữ cảnh
+function positionContextMenu(event) {
+  const menuWidth = contextMenu.offsetWidth;
+  const menuHeight = contextMenu.offsetHeight;
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+
+  const margin = 10;
+
+  let left = event.clientX + scrollX + margin;
+  let top = event.clientY + scrollY + margin;
+
+  if (left + menuWidth > windowWidth + scrollX - margin * 2) {
+    left = event.clientX + scrollX - menuWidth - margin;
+  }
+
+  if (top + menuHeight > windowHeight + scrollY - margin * 2) {
+    top = event.clientY + scrollY - menuHeight - margin;
+  }
+
+  if (left < margin) {
+    left = margin;
+  }
+
+  if (top < margin) {
+    top = margin;
+  }
+
+  contextMenu.style.left = `${left}px`;
+  contextMenu.style.top = `${top}px`;
+  contextMenu.style.zIndex = 10000;
+}
+
+// Hàm hiển thị menu ngữ cảnh khi nhấp vào nút tùy chọn
+function toggleMenu(event) {
+  event.stopPropagation();
+  const songElement = event.currentTarget.closest(".playlist__song");
+  const clickedIndex = songElement.dataset.index;
+
+  if (
+    contextMenu.style.display === "block" &&
+    currentClickedIndex === clickedIndex
+  ) {
+    hideContextMenu();
+  } else {
+    currentClickedIndex = clickedIndex;
+    contextMenu.style.display = "block";
+    positionContextMenu(event);
+    animationContextMenu();
+  }
+}
+
+// Hàm hiển thị menu ngữ cảnh khi nhấp chuột phải
+function showContextMenu(event) {
+  event.preventDefault();
+  const songElement = event.currentTarget.closest(".playlist__song");
+  currentClickedIndex = songElement.dataset.index;
+
+  contextMenu.style.display = "block";
+  positionContextMenu(event);
+  animationContextMenu();
+}
+
+// Hàm xử lý khi nhấp chuột bên ngoài menu ngữ cảnh
 function handleOutsideClick(event) {
   if (
     !contextMenu.contains(event.target) &&
     !event.target.matches(
-      ".playlist__option--button,.playlist__option--button *"
+      ".playlist__option--button, .playlist__option--button *"
     )
   ) {
     hideContextMenu();
   }
 }
 
+// Gắn sự kiện nhấp chuột trái vào nút tùy chọn
 document.querySelectorAll(".playlist__option--button").forEach((button) => {
   button.addEventListener("click", toggleMenu);
 });
 
+// Gắn sự kiện nhấp chuột phải vào các bài hát
+document.querySelectorAll(".playlist__song").forEach((songElement) => {
+  songElement.addEventListener("contextmenu", showContextMenu);
+});
+
+// Gắn sự kiện nhấp chuột bên ngoài menu ngữ cảnh
+document.addEventListener("click", handleOutsideClick);
+
+// Gắn sự kiện nhấp chuột phải vào tài liệu để ngăn hiển thị menu ngữ cảnh mặc định
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
+
+// Gắn sự kiện cho các mục trong menu ngữ cảnh
 document.querySelectorAll(".context-menu ul li").forEach((item) => {
   item.addEventListener("click", () => {
     const action = item.dataset.action;
     if (action) {
-      // Thực hiện hành động dựa trên giá trị của action
       switch (action) {
         case "download":
           downloadSong();
@@ -250,76 +292,14 @@ document.querySelectorAll(".context-menu ul li").forEach((item) => {
         default:
           console.log(`${action}`);
       }
-
-      // Ẩn menu sau khi chọn một item
+      hideContextMenu();
     }
-    hideContextMenu();
   });
 });
 
+// Ẩn menu ngữ cảnh khi thay đổi kích thước hoặc cuộn trang
 window.addEventListener("resize", hideContextMenu);
 window.addEventListener("scroll", hideContextMenu);
-
-//
-
-function showContextMenu(event) {
-  event.preventDefault();
-
-  // Hiển thị menu để tính toán kích thước
-  contextMenu.style.display = "block";
-
-  // Lấy kích thước của menu và cửa sổ trình duyệt
-  const menuWidth = contextMenu.offsetWidth;
-  const menuHeight = contextMenu.offsetHeight;
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const scrollX = window.scrollX;
-  const scrollY = window.scrollY;
-
-  // Khoảng cách cần thiết từ các cạnh cửa sổ
-  const margin = 10;
-  // Vị trí nhấp chuột và khoảng cách margin
-  let left = event.clientX + scrollX + margin;
-  let top = event.clientY + scrollY + margin;
-
-  // Điều chỉnh vị trí nếu không đủ chỗ bên phải
-  if (left + menuWidth > windowWidth + scrollX - margin * 2) {
-    left = event.clientX + scrollX - menuWidth - margin;
-  }
-
-  // Điều chỉnh vị trí nếu không đủ chỗ bên dưới
-  if (top + menuHeight > windowHeight + scrollY - margin * 2) {
-    top = event.clientY + scrollY - menuHeight - margin;
-  }
-
-  // Điều chỉnh nếu không đủ chỗ bên trái
-  if (left < margin) {
-    left = margin;
-  }
-
-  // Điều chỉnh nếu không đủ chỗ bên trên
-  if (top < margin) {
-    top = margin;
-  }
-
-  // Thiết lập vị trí cuối cùng cho menu
-  contextMenu.style.left = `${left}px`;
-  contextMenu.style.top = `${top}px`;
-  contextMenu.style.zIndex = 10000; // Đảm bảo menu hiển thị trên các phần tử khác
-}
-
-// Gắn sự kiện contextmenu để hiển thị menu tùy chỉnh
-document.querySelectorAll(".playlist__song").forEach((songElement, index) => {
-  songElement.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-    currentClickedIndex = index;
-    showContextMenu(event);
-  });
-});
-
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
 
 function smoothScroll(selector, duration) {
   const viewportHeight = window.innerHeight;

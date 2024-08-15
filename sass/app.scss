@@ -729,6 +729,9 @@ body {
 .context-menu {
   display: none;
   position: absolute;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top left;
   backdrop-filter: blur(5px);
   background: linear-gradient(45deg,
       rgba(10, 20, 28, 0.2) 0%,
@@ -740,6 +743,22 @@ body {
     0 15px 15px rgb(0 0 0 / 6%), 0 30px 30px rgb(0 0 0 / 7%),
     0 70px 65px rgb(0 0 0 / 9%);
   z-index: 10000;
+
+  &.show {
+    animation: menuAnimation 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  }
+
+  @keyframes menuAnimation {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
 
 .context-menu ul {
@@ -769,5 +788,5 @@ body {
 }
 
 .context-menu ul li:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
 }
