@@ -1,4 +1,9 @@
-import { musics } from "./musicData.js";
+import { copyCurrentPageLink } from "./utils/copyLink.js";
+import { downloadSong } from "./utils/download.js";
+import { musics } from "./data/musicData.js";
+import { createTooltip, tooltipElement } from "./components/tooltip/tooltip.js";
+import { animationContextMenu } from "./animation/animationOpt.js";
+
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
 const nextBtn = document.querySelector(".btn__next");
@@ -141,7 +146,7 @@ function renderMusic() {
                 <span></span>
                 <span></span>
               </div>
-              <div class="playlist__option--button">
+              <div class="playlist__option--button" data-tooltip="Khác">
                 <i class="fas fa-ellipsis-h icon__option"></i>
               </div>
             </div>
@@ -151,37 +156,29 @@ function renderMusic() {
 }
 renderMusic();
 
+//
+const optionBtns = document.querySelectorAll(".playlist__option--button");
+const playlistSongs = document.querySelectorAll(".playlist__song");
+
 // Khởi tạo phần tử menu ngữ cảnh
 const contextMenu = document.querySelector(".context-menu");
-let currentClickedIndex = null;
+let currentClickedIndex;
 
-// Hàm tải bài hát
-function downloadSong() {
-  const currentSong = musics[currentClickedIndex];
-  if (currentSong) {
-    const link = document.createElement("a");
-    link.href = currentSong.path;
-    link.download = currentSong.name;
-    link.target = "_blank";
-    link.click();
-  }
+function updateOptionInfo() {
+  const optionInfo = document.querySelector(".option__info");
+  optionInfo.innerHTML = ` 
+      <div class="option__info--left">
+        <img src="${musics[currentClickedIndex].image}" alt="${musics[currentClickedIndex].name}">
+      </div>
+      <div class="option__info--right">
+        <h3 class="option__info--name">${musics[currentClickedIndex].name}</h3>
+        <h4 class="option__info--singer">${musics[currentClickedIndex].singer}</h4>
+      </div>`;
 }
 
 // Hàm ẩn menu ngữ cảnh
 function hideContextMenu() {
   contextMenu.style.display = "none";
-}
-
-// Hàm tạo hiệu ứng cho menu ngữ cảnh
-function animationContextMenu() {
-  if (contextMenu.classList.contains("show")) {
-    contextMenu.classList.remove("show");
-    setTimeout(() => {
-      contextMenu.classList.add("show");
-    }, 100);
-  } else {
-    contextMenu.classList.add("show");
-  }
 }
 
 // Hàm định vị menu ngữ cảnh
@@ -238,21 +235,24 @@ function toggleMenu(event) {
     hideContextMenu();
   } else {
     currentClickedIndex = clickedIndex;
+    updateOptionInfo();
     contextMenu.style.display = "block";
-    animationContextMenu();
     positionContextMenu(event);
+    animationContextMenu(event, true, contextMenu); // Gọi với tham số `true` khi từ nút option
   }
 }
 
 // Hàm hiển thị menu ngữ cảnh khi nhấp chuột phải
+
 function showContextMenu(event) {
   event.preventDefault();
   const songElement = event.currentTarget.closest(".playlist__song");
   currentClickedIndex = songElement.dataset.index;
+  updateOptionInfo();
 
   contextMenu.style.display = "block";
   positionContextMenu(event);
-  animationContextMenu();
+  animationContextMenu(event, false, contextMenu); // Không truyền tham số, mặc định là `false`
 }
 
 // Hàm xử lý khi nhấp chuột bên ngoài menu ngữ cảnh
@@ -268,12 +268,12 @@ function handleOutsideClick(event) {
 }
 
 // Gắn sự kiện nhấp chuột trái vào nút tùy chọn
-document.querySelectorAll(".playlist__option--button").forEach((button) => {
+optionBtns.forEach((button) => {
   button.addEventListener("click", toggleMenu);
 });
 
 // Gắn sự kiện nhấp chuột phải vào các bài hát
-document.querySelectorAll(".playlist__song").forEach((songElement) => {
+playlistSongs.forEach((songElement) => {
   songElement.addEventListener("contextmenu", showContextMenu);
 });
 
@@ -288,15 +288,18 @@ document.addEventListener("contextmenu", (e) => {
 // Gắn sự kiện cho các mục trong menu ngữ cảnh
 document.querySelectorAll(".context-menu ul li").forEach((item) => {
   item.addEventListener("click", () => {
+    const currentSong = musics[currentClickedIndex];
     const action = item.dataset.action;
     if (action) {
       switch (action) {
         case "download":
-          downloadSong();
+          downloadSong(currentSong);
           break;
+        case "copy":
+          copyCurrentPageLink();
         // Xử lý các hành động khác nếu cần
         default:
-          console.log(`${action}`);
+        // console.log(`${action}`);
       }
       hideContextMenu();
     }
@@ -447,8 +450,12 @@ function playRandomSong() {
     repeatBtn.classList.toggle("active");
   }
   if (isRandom) {
+    randomBtn.setAttribute("data-tooltip", "Phát ngẫu nhiên");
+    tooltipElement.innerHTML = "Phát ngẫu nhiên";
     isRandom = false;
   } else {
+    randomBtn.setAttribute("data-tooltip", "Tắt phát ngẫu nhiên");
+    tooltipElement.innerHTML = "Tắt phát ngẫu nhiên";
     isRandom = true;
   }
   randomBtn.classList.toggle("active");
@@ -461,8 +468,12 @@ function playRepeatSong() {
     randomBtn.classList.toggle("active");
   }
   if (isRepeat) {
+    repeatBtn.setAttribute("data-tooltip", "Phát lại bài hát");
+    tooltipElement.innerHTML = "Phát lại bài hát";
     isRepeat = false;
   } else {
+    repeatBtn.setAttribute("data-tooltip", "Tắt phát lại bài hát");
+    tooltipElement.innerHTML = "Tắt phát lại bài hát";
     isRepeat = true;
   }
   repeatBtn.classList.toggle("active");
@@ -513,9 +524,11 @@ function playAndPauseMusic() {
 song.addEventListener("play", playSong);
 function playSong() {
   playBtn.innerHTML = `
-            <div class="btn__play--inner">
-              <i class="fas fa-pause icon__pause"></i>
-            </div>
+  <div class="btn btn__play" data-tooltip="Dừng phát bài hát">
+    <div class="btn__play--inner">
+      <i class="fas fa-pause icon__pause"></i>
+    </div>
+  </div>
           `;
   isPlaying = false;
   activeSong();
@@ -530,9 +543,11 @@ function pauseSong() {
     isActiveWaves.classList.remove("waves__active");
   }
   playBtn.innerHTML = `
+  <div class="btn btn__play" data-tooltip="Phát bài hát">
     <div class="btn__play--inner">
-    <i class="fas fa-play icon__play"></i>
+      <i class="fas fa-play icon__play"></i>
     </div>
+  </div>
     `;
   isPlaying = true;
   musicThumbAnimate.pause();
@@ -593,12 +608,18 @@ function handleProgressBar() {
 }
 
 function handleVolumeBar() {
-  volumeTrack.style.width = `${volumeBar.value}%`;
+  if (song.volume) {
+    volumeTrack.style.width = `${volumeBar.value}%`;
+  } else {
+    volumeTrack.style.width = 0;
+  }
 }
 
 muted.addEventListener("click", handleMuted);
 function handleMuted() {
   if (isMuted) {
+    muted.setAttribute("data-tooltip", "Tắt âm lượng");
+    tooltipElement.innerHTML = "Tắt âm lượng";
     muted.innerHTML = `<i class="fa-solid fa-volume-high unmute"></i>`;
     isMuted = false;
     volumeBar.value = unmuteVolume;
@@ -608,6 +629,8 @@ function handleMuted() {
       song.volume = volumeBar.value / 100;
     }
   } else {
+    muted.setAttribute("data-tooltip", "Bật âm lượng");
+    tooltipElement.innerHTML = "Bật âm lượng";
     muted.innerHTML = `<i class="fa-solid fa-volume-xmark muted"></i>`;
     isMuted = true;
     volumeBar.value = 0;
@@ -723,3 +746,5 @@ document.addEventListener("keydown", function (event) {
   //   event.preventDefault();
   // }
 });
+
+createTooltip();

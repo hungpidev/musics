@@ -16,26 +16,29 @@
 
 <body>
   <div class="context-menu">
+    <div class="option__info">
+
+    </div>
     <ul>
       <li data-action="download">
         <i class="fa-light fa-download"></i>
         <p>Tải xuống</p>
       </li>
+      <li data-action="copy">
+        <i class="fa-light fa-link"></i>
+        <p>Sao chép link</p>
+      </li>
       <li data-action="share">
         <i class="fa-light fa-share"></i>
         <p>Chia sẻ</p>
       </li>
-      <li data-action="copy-link">
-        <i class="fa-light fa-link"></i>
-        <p>Sao chép link</p>
+      <li data-action="add">
+        <i class="fa-light fa-circle-play"></i>
+        <p>Thêm vào danh sách phát</p>
       </li>
-      <li data-action="play-similar-content">
-        <i class="fa-light fa-signal-stream"></i>
-        <p>Phát nội dung tương tự</p>
-      </li>
-      <li data-action="add-playlist">
-        <i class="fa-light fa-circle-plus"></i>
-        <p>Thêm vào playlist</p>
+      <li data-action="delete">
+        <i class="fa-light fa-trash"></i>
+        <p>Xóa khỏi playlist</p>
       </li>
     </ul>
   </div>
@@ -61,26 +64,26 @@
         <div class="music__duration"></div>
       </div>
       <div class="music__control">
-        <div class="btn btn__repeat">
+        <div class="btn btn__repeat" data-tooltip="Phát lại bài hát">
           <i class="fa-regular fa-repeat-1"></i>
         </div>
-        <div class="btn btn__prev">
+        <div class="btn btn__prev" data-tooltip="Phát bài hát trước đó">
           <i class="fas fa-step-backward"></i>
         </div>
-        <div class="btn btn__play">
+        <div class="btn btn__play" data-tooltip="Phát bài hát">
           <div class="btn__play--inner">
             <i class="fas fa-play icon__play"></i>
           </div>
         </div>
-        <div class="btn btn__next">
+        <div class="btn btn__next" data-tooltip="Phát bài hát tiếp theo">
           <i class="fas fa-step-forward"></i>
         </div>
-        <div class="btn btn__random">
+        <div class="btn btn__random" data-tooltip="Phát ngẫu nhiên">
           <i class="fa-regular fa-shuffle"></i>
         </div>
       </div>
       <div class="music__volume">
-        <div class="volume__btn volume__muted">
+        <div class="volume__btn volume__muted" data-tooltip="Tắt âm lượng">
           <!-- <i class="fa-solid fa-volume-high unmute"></i> -->
         </div>
         <div class="volume__btn volume__down">
