@@ -742,7 +742,7 @@ body {
     0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%),
     0 15px 15px rgb(0 0 0 / 6%), 0 30px 30px rgb(0 0 0 / 7%),
     0 70px 65px rgb(0 0 0 / 9%);
-  z-index: 10000;
+  z-index: 10;
 
   &.show {
     animation: menuAnimation 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
@@ -848,11 +848,59 @@ body {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  z-index: 1000000000;
+  z-index: 11;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .tooltip.show {
   opacity: 1;
   visibility: visible;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: -300px;
+  /* Bắt đầu từ ngoài màn hình */
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toast.show-toast {
+  right: 20px;
+  /* Di chuyển vào trong màn hình */
+  opacity: 1;
+}
+
+.toast.success {
+  background-color: #4caf50;
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+.toast.info {
+  background-color: #2196f3;
+}
+
+.close-toast {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.close-toast:hover {
+  opacity: 0.8;
 }

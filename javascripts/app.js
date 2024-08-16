@@ -3,6 +3,9 @@ import { downloadSong } from "./utils/download.js";
 import { musics } from "./data/musicData.js";
 import { createTooltip, tooltipElement } from "./components/tooltip/tooltip.js";
 import { animationContextMenu } from "./animation/animationOpt.js";
+import { positionContextMenu } from "./components/contextmenu/position.js";
+import { hideContextMenu } from "./components/contextmenu/hide.js";
+import { showSuccessToast } from "./components/toast-message/toastMessage.js";
 
 const song = document.querySelector(".music__song");
 const playBtn = document.querySelector(".btn__play");
@@ -164,7 +167,7 @@ const playlistSongs = document.querySelectorAll(".playlist__song");
 const contextMenu = document.querySelector(".context-menu");
 let currentClickedIndex;
 
-function updateOptionInfo() {
+function setOptionInfo() {
   const optionInfo = document.querySelector(".option__info");
   optionInfo.innerHTML = ` 
       <div class="option__info--left">
@@ -176,83 +179,32 @@ function updateOptionInfo() {
       </div>`;
 }
 
-// Hàm ẩn menu ngữ cảnh
-function hideContextMenu() {
-  contextMenu.style.display = "none";
-}
-
-// Hàm định vị menu ngữ cảnh
-function positionContextMenu(event) {
-  const menuWidth = contextMenu.offsetWidth;
-  const menuHeight = contextMenu.offsetHeight;
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const scrollX = window.scrollX;
-  const scrollY = window.scrollY;
-
-  const margin = 20; // Khoảng cách 20px từ mép cửa sổ
-  const offset = 15; // Khoảng cách tối thiểu 15px từ con trỏ chuột
-
-  let left = event.clientX + scrollX + offset;
-  let top = event.clientY + scrollY + offset;
-
-  // Kiểm tra nếu menu vượt qua mép phải cửa sổ
-  if (left + menuWidth > windowWidth + scrollX - margin) {
-    left = event.clientX + scrollX - menuWidth - offset;
-  }
-
-  // Kiểm tra nếu menu vượt qua mép dưới cửa sổ
-  if (top + menuHeight > windowHeight + scrollY - margin) {
-    top = event.clientY + scrollY - menuHeight - offset;
-  }
-
-  // Điều chỉnh vị trí nếu menu bị vượt qua mép trái cửa sổ
-  if (left < scrollX + margin) {
-    left = scrollX + margin;
-  }
-
-  // Điều chỉnh vị trí nếu menu bị vượt qua mép trên cửa sổ
-  if (top < scrollY + margin) {
-    top = scrollY + margin;
-  }
-
-  // Thiết lập vị trí cuối cùng cho menu
-  contextMenu.style.left = `${left}px`;
-  contextMenu.style.top = `${top}px`;
-  contextMenu.style.zIndex = 10000; // Đảm bảo menu hiển thị trên các phần tử khác
-}
-
-// Hàm hiển thị menu ngữ cảnh khi nhấp vào nút tùy chọn
-function toggleMenu(event) {
+function toggleOrShowOption(event, fromOptionButton) {
   event.stopPropagation();
+
+  // Ngăn hiển thị menu ngữ cảnh mặc định của trình duyệt khi nhấp chuột phải
+  if (event.type === "contextmenu") {
+    event.preventDefault();
+  }
+
   const songElement = event.currentTarget.closest(".playlist__song");
   const clickedIndex = songElement.dataset.index;
 
   if (
     contextMenu.style.display === "block" &&
-    currentClickedIndex === clickedIndex
+    currentClickedIndex === clickedIndex &&
+    fromOptionButton
   ) {
-    hideContextMenu();
+    // Nếu menu đang hiển thị cho cùng phần tử khi nhấp vào nút tùy chọn, ẩn menu
+    hideContextMenu(contextMenu);
   } else {
+    // Cập nhật thông tin và hiển thị menu
     currentClickedIndex = clickedIndex;
-    updateOptionInfo();
+    setOptionInfo();
     contextMenu.style.display = "block";
-    positionContextMenu(event);
-    animationContextMenu(event, true, contextMenu); // Gọi với tham số `true` khi từ nút option
+    positionContextMenu(event, contextMenu);
+    animationContextMenu(event, fromOptionButton, contextMenu);
   }
-}
-
-// Hàm hiển thị menu ngữ cảnh khi nhấp chuột phải
-
-function showContextMenu(event) {
-  event.preventDefault();
-  const songElement = event.currentTarget.closest(".playlist__song");
-  currentClickedIndex = songElement.dataset.index;
-  updateOptionInfo();
-
-  contextMenu.style.display = "block";
-  positionContextMenu(event);
-  animationContextMenu(event, false, contextMenu); // Không truyền tham số, mặc định là `false`
 }
 
 // Hàm xử lý khi nhấp chuột bên ngoài menu ngữ cảnh
@@ -263,18 +215,17 @@ function handleOutsideClick(event) {
       ".playlist__option--button, .playlist__option--button *"
     )
   ) {
-    hideContextMenu();
+    hideContextMenu(contextMenu);
   }
 }
 
-// Gắn sự kiện nhấp chuột trái vào nút tùy chọn
+// Gán sự kiện cho nút tùy chọn và các bài hát
 optionBtns.forEach((button) => {
-  button.addEventListener("click", toggleMenu);
+  button.addEventListener("click", (event) => toggleOrShowOption(event, true));
 });
 
-// Gắn sự kiện nhấp chuột phải vào các bài hát
 playlistSongs.forEach((songElement) => {
-  songElement.addEventListener("contextmenu", showContextMenu);
+  songElement.addEventListener("contextmenu", toggleOrShowOption);
 });
 
 // Gắn sự kiện nhấp chuột bên ngoài menu ngữ cảnh
@@ -294,21 +245,34 @@ document.querySelectorAll(".context-menu ul li").forEach((item) => {
       switch (action) {
         case "download":
           downloadSong(currentSong);
+          showSuccessToast("Bài hát đã được tải xuống");
           break;
         case "copy":
           copyCurrentPageLink();
+          showSuccessToast("Đã copy thành công");
+          break;
+        case "share":
+          showSuccessToast("Đã share thành công");
+          break;
+        case "add":
+          showSuccessToast("Đã share thành công");
+          break;
+        case "delete":
+          showSuccessToast("Đã share thành công");
+          break;
+
         // Xử lý các hành động khác nếu cần
         default:
         // console.log(`${action}`);
       }
-      hideContextMenu();
+      hideContextMenu(contextMenu);
     }
   });
 });
 
 // Ẩn menu ngữ cảnh khi thay đổi kích thước hoặc cuộn trang
-window.addEventListener("resize", hideContextMenu);
-window.addEventListener("scroll", hideContextMenu);
+window.addEventListener("resize", hideContextMenu(contextMenu));
+window.addEventListener("scroll", hideContextMenu(contextMenu));
 
 function smoothScroll(selector, duration) {
   const viewportHeight = window.innerHeight;

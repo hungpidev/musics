@@ -6,5 +6,4 @@ export function downloadSong(currentSong) {
     link.target = "_blank";
     link.click();
   }
-  alert("Bài hát đã được tải xuống");
 }
